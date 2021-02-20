@@ -55,7 +55,11 @@ public class ContactsFragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().onBackPressed();
+                try {
+                    getActivity().onBackPressed();
+                }catch (NullPointerException e){
+                    return;
+                }
             }
         });
 
