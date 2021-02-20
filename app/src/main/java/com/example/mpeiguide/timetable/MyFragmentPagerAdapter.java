@@ -7,11 +7,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.example.mpeiguide.MainActivity;
 import com.example.mpeiguide.R;
 
-public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
+public class MyFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
     public final static int AMOUNT_OF_DAYS = 7;
 
@@ -24,7 +25,8 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position){
-        Log.d(MainActivity.MAIN_LOG,"create new page fragment");
+        Log.d(MainActivity.MAIN_LOG,"=======================");
+        Log.d(MainActivity.MAIN_LOG,"FragmentAdapter: getItem");
         return PageFragment.newInstance(position);
     }
 

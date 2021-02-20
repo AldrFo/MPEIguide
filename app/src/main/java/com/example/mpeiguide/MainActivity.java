@@ -6,12 +6,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 
+import com.example.mpeiguide.info.InfoFragment;
 import com.example.mpeiguide.timetable.TimetableFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -37,11 +39,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.timetable:
-                Log.d(MAIN_LOG,"go to timetable");
+                Log.d(MAIN_LOG,"select timetable");
                 loadFragment(TimetableFragment.newInstance());
                 return true;
             case R.id.bars:
-
+                Log.d(MAIN_LOG,"select bars");
                 return true;
             case R.id.map:
 

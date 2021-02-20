@@ -1,7 +1,9 @@
 package com.example.mpeiguide.timetable;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -21,8 +23,15 @@ public class TimetableFragment extends Fragment {
     private TabLayout tabs;
 
     @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onAttach()====");
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onCreate()====");
     }
 
     @Override
@@ -38,6 +47,48 @@ public class TimetableFragment extends Fragment {
         tabs = v.findViewById(R.id.tabs);
         tabs.setupWithViewPager(vp);
         return v;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onStart()====");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onResume()====");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onPause()====");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onStop()====");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onDestroyView()====");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onDestroy()====");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onDetach()====");
     }
 
     public static TimetableFragment newInstance(){
