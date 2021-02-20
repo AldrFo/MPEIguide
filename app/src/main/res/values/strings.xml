@@ -12,6 +12,12 @@
     <string name="classroom">Номер аудитории</string>
     <string name="name_of_event">Название события</string>
     <string name="time_of_event">Время</string>
+    <string name="event_start_time">Время начала</string>
+    <string name="event_end_time">Время окончания</string>
+    <string name="event_type">Тип события</string>
+    <string name="event_place">Место</string>
+
+    <string name="create_event">Создание события</string>
 
     <string name="ok">Ок</string>
 

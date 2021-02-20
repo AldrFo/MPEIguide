@@ -6,18 +6,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 
 import com.example.mpeiguide.info.InfoFragment;
 import com.example.mpeiguide.timetable.TimetableFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.sql.Time;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 

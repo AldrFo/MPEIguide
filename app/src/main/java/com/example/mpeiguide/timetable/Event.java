@@ -6,6 +6,14 @@ public class Event {
     public static final String SEMINAR = "Практика";
     public static final String LAB = "Лабораторная работа";
 
+    public static final String START_TIME = "start_time";
+    public static final String END_TIME = "end_time";
+    public static final String TEACHER_NAME = "teacher_name";
+    public static final String EVENT_TYPE = "event_type";
+    public static final String PLACE = "place";
+    public static final String DESCRIPTION = "description";
+    public static final String EVENT_NAME = "event_name";
+
     private String startTime;
     private String endTime;
     private String teacherName;
