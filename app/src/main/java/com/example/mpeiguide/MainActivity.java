@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
                 return true;
             case R.id.info:
-
+                Log.d(MAIN_LOG,"select info");
+                loadFragment(InfoFragment.newInstance());
                 return true;
             case R.id.settings:
 

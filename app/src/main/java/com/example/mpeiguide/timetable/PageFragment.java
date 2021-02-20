@@ -21,6 +21,8 @@ import java.util.Date;
 
 public class PageFragment extends Fragment {
 
+    //TODO: сделать добавление новых ивентов через floatingButton
+
     public static final String ARG_PAGE_NUMBER = "arg_page_number";
 
     private RecyclerView recyclerView;
