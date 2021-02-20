@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">MPEIguide</string>
+
+    <string name="timetable">Расписание</string>
+    <string name="BARS">Барс</string>
+    <string name="map">Карта</string>
+    <string name="info">Информация</string>
+    <string name="settings">Настройки</string>
+
+    <string name="teacher_name">Имя преподавателя</string>
+    <string name="description">Описание</string>
+    <string name="classroom">Номер аудитории</string>
+    <string name="name_of_event">Название события</string>
+    <string name="time_of_event">Время</string>
+
+    <string name="ok">Ок</string>
+
+    <string name="pn">ПН</string>
+    <string name="vt">ВТ</string>
+    <string name="sr">СР</string>
+    <string name="cht">ЧТ</string>
+    <string name="pt">ПТ</string>
+    <string name="sb">СБ</string>
+    <string name="vs">ВС</string>
+    <string name="week">Неделя</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

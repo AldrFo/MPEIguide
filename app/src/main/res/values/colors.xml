@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="bottomMenuColor">#EFEFEF</color>
+    <color name="iconColor">#787878</color>
+    <color name="event_main_color">#EAEAEA</color>
+    <color name="event_sec_color">#B1B1B1</color>
+</resources>
