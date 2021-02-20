@@ -31,5 +31,8 @@
     <string name="FAQ">Частые вопросы</string>
     <string name="kukuha_edet_pamagiti">Звонок психологу</string>
 
-
+    <string name="position">Должность:</string>
+    <string name="phone">Телефон:</string>
+    <string name="osep_mail">Почта ОСЭП:</string>
+    <string name="contact_classroom">Аудитория:</string>
 </resources>

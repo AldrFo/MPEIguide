@@ -15,8 +15,6 @@ import com.example.mpeiguide.R;
 import com.example.mpeiguide.info.contacts.ContactsFragment;
 
 public class InfoFragment extends Fragment implements View.OnClickListener{
-    //TODO: сделать меню выбора различных информационных разделов
-    //TODO: сделать раздел контактов
 
     private Button contactsButton;
     private Button orgButton;
@@ -72,6 +70,7 @@ public class InfoFragment extends Fragment implements View.OnClickListener{
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.replace(R.id.frag_container,f);
+        ft.addToBackStack("toContacts");
         ft.commit();
     }
 }

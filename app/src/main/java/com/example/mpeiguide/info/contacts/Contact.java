@@ -22,6 +22,14 @@ public class Contact {
 
     public static final int NONE = 0;
 
+    public static final String NAME = "name";
+    public static final String WORK_POS = "work_pos";
+    public static final String PHONE_NUM = "phone_num";
+    public static final String PLACE = "place";
+    public static final String DESCRIPTION = "description";
+    public static final String EMAIL = "email";
+    public static final String IMAGE_ID = "image_view";
+
     private int imageId;
     private String name;
     private String workPosition;

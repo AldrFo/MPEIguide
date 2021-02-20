@@ -16,10 +16,10 @@ import java.util.List;
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder>  {
 
     interface OnContactClickListener{
-        public void onContactClick(ContactAdapter.ViewHolder holder, int position);
+        public void onContactClick(Contact contact, int position);
     }
 
-    private final int MAX_DESC_LENGTH = 50-3;
+    private final int MAX_DESC_LENGTH = 50;
 
     private final LayoutInflater inflater;
     private final List<Contact> contacts;
@@ -52,8 +52,9 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
         char[] shortDescChar = contact.getDescription().toCharArray();
         StringBuilder shortDesc = new StringBuilder();
-        if(shortDescChar.length >= MAX_DESC_LENGTH) {
-            for (int i = 0; i < MAX_DESC_LENGTH; i++) {
+        shortDesc.append("  ");
+        if(shortDescChar.length >= MAX_DESC_LENGTH-3) {
+            for (int i = 0; i < MAX_DESC_LENGTH-3; i++) {
                 shortDesc.append(shortDescChar[i]);
             }
             shortDesc.append("...");
@@ -64,7 +65,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                contactClickListener.onContactClick(holder,position);
+                contactClickListener.onContactClick(contact,position);
             }
         });
     }
