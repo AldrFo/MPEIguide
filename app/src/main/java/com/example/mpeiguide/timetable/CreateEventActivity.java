@@ -47,6 +47,8 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
         data.putExtra(Event.PLACE,editPlace.getText().toString());
         data.putExtra(Event.TEACHER_NAME,editTeacherName.getText().toString());
         data.putExtra(Event.DESCRIPTION,editDescription.getText().toString());
+        data.putExtra(PageFragment.ARG_PAGE_NUMBER,
+                getIntent().getIntExtra(PageFragment.ARG_PAGE_NUMBER,0));
         setResult(2,data);
         finish();
     }

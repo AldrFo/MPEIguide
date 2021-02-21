@@ -2,7 +2,7 @@ package com.example.mpeiguide.timetable;
 
 import java.util.ArrayList;
 
-public class WeekTimetable {
+public class Timetable {
 
     public static final int MONDAY = 0;
     public static final int TUESDAY = 1;
@@ -12,7 +12,13 @@ public class WeekTimetable {
     public static final int SATURDAY = 5;
     public static final int SUNDAY = 6;
 
-    public static ArrayList<Event> getTimetable(int day){
+    private ArrayList<Event> timetable;
+
+    public Timetable(int day){
+        timetable = setTimetable(day);
+    }
+
+    private static ArrayList<Event> setTimetable(int day){
         Event[] events;
         switch (day){
             case MONDAY:
@@ -76,5 +82,13 @@ public class WeekTimetable {
         }else{
             return null;
         }
+    }
+
+    public ArrayList<Event> getTimetable(){
+        return timetable;
+    }
+
+    public void addToTimetable(Event e){
+        timetable.add(e);
     }
 }

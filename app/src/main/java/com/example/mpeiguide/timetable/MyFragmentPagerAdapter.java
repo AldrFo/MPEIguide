@@ -6,11 +6,12 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.example.mpeiguide.MainActivity;
 import com.example.mpeiguide.R;
+
+import java.util.ArrayList;
 
 public class MyFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -18,16 +19,19 @@ public class MyFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
     private Context context;
 
-    public MyFragmentPagerAdapter(FragmentManager fm, Context context){
+    private Timetable[] weekTimetable;
+
+    public MyFragmentPagerAdapter(FragmentManager fm, Context context, Timetable[] weekTimetable){
         super(fm);
         this.context = context;
+        this.weekTimetable = weekTimetable;
     }
 
     @Override
     public Fragment getItem(int position){
         Log.d(MainActivity.MAIN_LOG,"=======================");
         Log.d(MainActivity.MAIN_LOG,"FragmentAdapter: getItem");
-        return PageFragment.newInstance(position);
+        return PageFragment.newInstance(position,weekTimetable[position].getTimetable());
     }
 
     @Override
