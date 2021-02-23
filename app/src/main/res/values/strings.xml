@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MPEIguide</string>
-
+    <string name="start_title">Добро пожаловать в \nMPEIguide</string>
+    <string name="start_hint">Например: А–07–20</string>
     <string name="timetable">Расписание</string>
     <string name="BARS">Барс</string>
     <string name="map">Карта</string>
