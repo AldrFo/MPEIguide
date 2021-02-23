@@ -1,8 +1,9 @@
 package com.example.mpeiguide.timetable;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Timetable {
+public class Timetable implements Serializable {
 
     public static final int MONDAY = 0;
     public static final int TUESDAY = 1;

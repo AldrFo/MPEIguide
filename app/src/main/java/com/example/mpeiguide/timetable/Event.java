@@ -1,6 +1,8 @@
 package com.example.mpeiguide.timetable;
 
-public class Event {
+import java.io.Serializable;
+
+public class Event implements Serializable {
 
     public static final String LECTURE = "Лекция";
     public static final String SEMINAR = "Практика";

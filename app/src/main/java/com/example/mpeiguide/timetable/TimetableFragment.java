@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.example.mpeiguide.MainActivity;
 import com.example.mpeiguide.R;
+import com.example.mpeiguide.SaveLoad;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -46,8 +47,14 @@ public class TimetableFragment extends Fragment {
         Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onCreateView===");
         View v = inflater.inflate(R.layout.fragment_timetable, container, false);
 
-        for(int i = 0;i<weekTimetable.length;i++){
-            weekTimetable[i] = new Timetable(i);
+        try{
+            weekTimetable = (Timetable[]) SaveLoad.load(getContext(),"timetable.tmt");
+        }catch (Exception e) {
+            Log.d(MainActivity.MAIN_LOG,"LOAD EXCEPTION");
+            Log.d(MainActivity.MAIN_LOG, e.getMessage());
+            for (int i = 0; i < weekTimetable.length; i++) {
+                weekTimetable[i] = new Timetable(i);
+            }
         }
 
         vp = v.findViewById(R.id.viewpager);
@@ -122,6 +129,11 @@ public class TimetableFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onDestroyView()====");
+        try {
+            SaveLoad.save(getContext(),"timetable.tmt",weekTimetable);
+        }catch (Exception e){
+            Log.d(MainActivity.MAIN_LOG,"SAVE EXCEPTION");
+        }
     }
 
     @Override
