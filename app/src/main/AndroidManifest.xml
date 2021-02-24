@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".timetable.CreateEventActivity"></activity>
+        <activity android:name=".timetable.CreateEventActivity" />
         <activity android:name=".info.contacts.ContactDetailsActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

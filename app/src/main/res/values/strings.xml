@@ -46,7 +46,7 @@
     <string name="common_settings">Общие настройки</string>
     <string name="timetable_settings">Настройки расписания</string>
     <string name="bars_settings">Настройки БАРС</string>
-    
+
     <string name="change_group">Изменить группу</string>
     <string name="alarm_button">Тревожная кнопка</string>
     <string name="show_teacher_name">Отображение преподавателя</string>

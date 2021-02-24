@@ -35,6 +35,19 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
         editDescription = findViewById(R.id.event_description_edit_text);
         okButton = findViewById(R.id.create_event_button);
         okButton.setOnClickListener(this);
+
+        try {
+            Intent intent = getIntent();
+            startTimeEdit.setText(intent.getStringExtra(Event.START_TIME));
+            endTimeEdit.setText(intent.getStringExtra(Event.END_TIME));
+            editName.setText(intent.getStringExtra(Event.EVENT_NAME));
+            editType.setText(intent.getStringExtra(Event.EVENT_TYPE));
+            editPlace.setText(intent.getStringExtra(Event.PLACE));
+            editTeacherName.setText(intent.getStringExtra(Event.TEACHER_NAME));
+            editDescription.setText(intent.getStringExtra(Event.DESCRIPTION));
+        }catch (Exception e){
+
+        }
     }
 
     @Override

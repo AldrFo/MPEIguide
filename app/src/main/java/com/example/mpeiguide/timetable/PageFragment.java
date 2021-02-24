@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +24,7 @@ import java.util.Date;
 public class PageFragment extends Fragment {
 
     public static final String ARG_PAGE_NUMBER = "arg_page_number";
+    public static  final String ARG_EVENT_POSITION = "arg_event_pos";
 
     private RecyclerView recyclerView;
     private ArrayList<Event> timetable = new ArrayList<>();
@@ -55,7 +57,15 @@ public class PageFragment extends Fragment {
         eventClickListener = new EventAdapter.OnEventClickListener() {
             @Override
             public void onEventClick(Event e, int position) {
-
+                Intent intent = new Intent(getContext(),CreateEventActivity.class);
+                intent.putExtra(Event.EVENT_NAME,e.getEventName());
+                intent.putExtra(Event.START_TIME,e.getStartTime());
+                intent.putExtra(Event.END_TIME,e.getEndTime());
+                intent.putExtra(Event.TEACHER_NAME,e.getTeacherName());
+                intent.putExtra(Event.DESCRIPTION,e.getDescription());
+                intent.putExtra(Event.EVENT_TYPE,e.getEventType());
+                intent.putExtra(Event.PLACE,e.getPlace());
+                startActivityForResult(intent,position);
             }
         };
 
@@ -65,6 +75,27 @@ public class PageFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         return v;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(data == null){
+            return;
+        }
+        String name = data.getStringExtra(Event.EVENT_NAME);
+        String startTime = data.getStringExtra(Event.START_TIME);
+        String endTime = data.getStringExtra(Event.END_TIME);
+        String teacherName = data.getStringExtra(Event.TEACHER_NAME);
+        String eventType = data.getStringExtra(Event.EVENT_TYPE);
+        String place = data.getStringExtra(Event.PLACE);
+        String description = data.getStringExtra(Event.DESCRIPTION);
+
+        Event event = new Event(startTime,endTime,name,eventType,place,teacherName,description);
+        timetable.set(requestCode,event);
+
+        EventAdapter adapter = new EventAdapter(getContext(),timetable,eventClickListener);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
