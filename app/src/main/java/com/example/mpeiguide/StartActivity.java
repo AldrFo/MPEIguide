@@ -2,7 +2,9 @@ package com.example.mpeiguide;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,29 +14,38 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class StartActivity extends AppCompatActivity implements TextWatcher{
+import com.example.mpeiguide.settings.SettingsFragment;
 
-    //TODO: Добавить передачу введенной группы в MainActivity.
-    //TODO: Добавить сохранение того факта, что первый вход уже осуществлялся через SharedPreferences
+public class StartActivity extends AppCompatActivity implements TextWatcher{
 
     public static final String FIRST_ENTER = "first_enter";
 
     private EditText startEditText;
     private boolean firstEnter;
 
+    private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
+        sharedPreferences = getSharedPreferences(SettingsFragment.SETTING_NAME,Context.MODE_PRIVATE);
+        firstEnter = sharedPreferences.getBoolean(FIRST_ENTER,true);
+
+        if(!firstEnter){
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+        }
+
         startEditText = findViewById(R.id.start_edit_text);
         startEditText.addTextChangedListener(this);
-
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        sharedPreferences.edit().putBoolean(FIRST_ENTER,firstEnter).apply();
     }
 
     @Override
@@ -66,17 +77,22 @@ public class StartActivity extends AppCompatActivity implements TextWatcher{
                 Log.d(MainActivity.MAIN_LOG, "===" + enteredTypeOfGroup + " " + enteredNumOfGroup
                         + " " + enteredYearOfGroup + "===");
                 if (enteredTypeOfGroup && enteredYearOfGroup && enteredNumOfGroup) {
+                    sharedPreferences.edit()
+                            .putString(SettingsFragment.GROUP_NAME,startEditText.getText().toString())
+                            .apply();
+                    firstEnter = false;
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
                     break;
                 }
             }
-        }catch (Exception e){ }
+        }catch (Exception e){
+            Log.d(MainActivity.MAIN_LOG,"ENTERING GROUP EXCEPTION!");
+        }
     }
 
     @Override
     public void afterTextChanged(Editable editable) {
 
     }
-
 }

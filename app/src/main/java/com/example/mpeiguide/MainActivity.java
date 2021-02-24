@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.mpeiguide.info.InfoFragment;
+import com.example.mpeiguide.settings.SettingsFragment;
 import com.example.mpeiguide.timetable.TimetableFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 loadFragment(InfoFragment.newInstance());
                 return true;
             case R.id.settings:
-
+                loadFragment(SettingsFragment.newInstance());
                 return true;
         }
         return false;
