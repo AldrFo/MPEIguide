@@ -1,8 +1,5 @@
 package com.example.mpeiguide.info.contacts;
 
-import android.media.Image;
-import android.widget.ImageView;
-
 import java.util.ArrayList;
 
 public class Contact {
@@ -18,6 +15,9 @@ public class Contact {
             new Contact("Фофанов Александр Васильевич","тупа дебик",
                     "8-964-511-03-55","у компа","грустный мальчик(9(",
                     "pupailupa@gmail.com",Contact.NONE),
+            new Contact("ФофАнов","тупа дебик",
+                    "8-964-511-03-55","у компа","грустный мальчик(9(",
+                    "pupailupa@gmail.com",Contact.NONE)
     };
 
     public static final int NONE = 0;

@@ -7,21 +7,38 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.mpeiguide.MainActivity;
 import com.example.mpeiguide.R;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
-public class ContactsFragment extends Fragment {
+public class ContactsFragment extends Fragment implements TextWatcher {
 
-    private RecyclerView recyclerView;
     private ArrayList<Contact> contacts;
+
     private ImageButton backButton;
+    private RecyclerView recyclerView;
+    private EditText searchEditText;
+
+    private ContactAdapter.OnContactClickListener listener;
+
+    private ContactSearcher contactSearcher;
+
+    private LayoutInflater inflater;
+    private Handler handler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,11 +48,15 @@ public class ContactsFragment extends Fragment {
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        this.inflater = inflater;
         View v = inflater.inflate(R.layout.fragment_contact, container, false);
         recyclerView = v.findViewById(R.id.contact_recycler_view);
         backButton = v.findViewById(R.id.contacts_back_button);
+        searchEditText = v.findViewById(R.id.contact_search_edit_text);
 
-        ContactAdapter.OnContactClickListener listener = new ContactAdapter.OnContactClickListener() {
+        searchEditText.addTextChangedListener(this);
+
+        listener = new ContactAdapter.OnContactClickListener() {
             @Override
             public void onContactClick(Contact contact, int position) {
                 Intent intent = new Intent(getContext(),ContactDetailsActivity.class);
@@ -71,8 +92,42 @@ public class ContactsFragment extends Fragment {
     public static ContactsFragment newInstance(){
         ContactsFragment fragment = new ContactsFragment();
         fragment.setContacts(Contact.getContactsList());
+        fragment.contactSearcher = new ContactSearcher(Contact.getContactsList());
+        fragment.handler = new Handler();
         return fragment;
     }
+
+    private void loadFragment(Fragment f){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.addToBackStack("contacts");
+        ft.replace(R.id.frag_container,f);
+        ft.commit();
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+
+    @Override
+    public void onTextChanged(final CharSequence charSequence, int i, int i1, int i2) {
+        Thread searchThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                contacts = contactSearcher.search(charSequence.toString());
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        ContactAdapter adapter = new ContactAdapter(inflater,contacts,listener);
+                        recyclerView.setAdapter(adapter);
+                    }
+                });
+            }
+        });
+        searchThread.start();
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) { }
 
     public void setContacts(ArrayList<Contact> contacts) {
         this.contacts = contacts;
