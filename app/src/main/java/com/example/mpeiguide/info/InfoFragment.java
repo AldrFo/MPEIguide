@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.mpeiguide.R;
 import com.example.mpeiguide.info.contacts.ContactsFragment;
+import com.example.mpeiguide.info.faq.FaqFragment;
 
 public class InfoFragment extends Fragment implements View.OnClickListener{
 
@@ -56,6 +57,7 @@ public class InfoFragment extends Fragment implements View.OnClickListener{
             case R.id.sites_button:
                 break;
             case R.id.FAQ_button:
+                loadFragment(FaqFragment.newInstance());
                 break;
             case R.id.da_ya_psih_button:
                 break;
