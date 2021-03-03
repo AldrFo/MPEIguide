@@ -25,24 +25,42 @@ public class ContactSearcher implements Searcher {
         ArrayList<Contact> results = new ArrayList<>();
 
         checkContactsAboutRequest(request,results);
-
-        int i = 0;
-        while(true) {
+        int j = 0;
+        Log.d(MainActivity.MAIN_LOG,"ContactSearcher: amount of words == "
+                + getAmountOfWords(request));
+        for(int i =0;i < getAmountOfWords(request);i++){
             StringBuilder singleWordRequest = new StringBuilder();
-            if(i != request.length()-1) {
-                while (request.charAt(i) != ' ' && i != request.length()-1) {
-                    singleWordRequest.append(request.charAt(i));
-                    i++;
-                }
-                Log.d(MainActivity.MAIN_LOG,"ContactSearcher: full singleWordRequest == "
-                        + singleWordRequest.toString());
-                checkContactsAboutRequest(singleWordRequest.toString(), results);
-                i++;
-            }else{
-                break;
+
+            while(request.charAt(j) == ' '){
+                j++;
             }
+
+            while (j != request.length() && request.charAt(j) != ' ') {
+                singleWordRequest.append(request.charAt(j));
+                j++;
+            }
+
+            Log.d(MainActivity.MAIN_LOG,"ContactSearcher: full singleWordRequest == "
+                    + singleWordRequest.toString());
+
+            checkContactsAboutRequest(singleWordRequest.toString(), results);
         }
         return results;
+    }
+
+    private int getAmountOfWords(String request){
+        int count = 1;
+        boolean flag = false;
+        for(int i = 0;i<request.length();i++){
+            if(request.charAt(i) == ' '){
+                flag = true;
+            }
+            if(flag && request.charAt(i) != ' '){
+                count++;
+                flag = false;
+            }
+        }
+        return count;
     }
 
     private void checkContactsAboutRequest(String request, ArrayList<Contact> results){
