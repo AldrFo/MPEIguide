@@ -113,11 +113,17 @@ public class ContactsFragment extends Fragment implements TextWatcher {
         Thread searchThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                contacts = contactSearcher.search(charSequence.toString());
+                final ArrayList<Contact> results = contactSearcher.search(charSequence.toString());
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        ContactAdapter adapter = new ContactAdapter(inflater,contacts,listener);
+                        ContactAdapter adapter;
+                        if(results != null) {
+                            adapter = new ContactAdapter(inflater, results, listener);
+                        }else{
+                            Log.d(MainActivity.MAIN_LOG,"contactList == null");
+                            adapter = new ContactAdapter(inflater, contacts, listener);
+                        }
                         recyclerView.setAdapter(adapter);
                     }
                 });
