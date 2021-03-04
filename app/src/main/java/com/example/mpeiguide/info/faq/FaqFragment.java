@@ -1,5 +1,6 @@
 package com.example.mpeiguide.info.faq;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -34,7 +35,7 @@ public class FaqFragment extends Fragment implements TextWatcher {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_faq, container, false);
         backButton = v.findViewById(R.id.faq_back_button);
@@ -57,7 +58,11 @@ public class FaqFragment extends Fragment implements TextWatcher {
         listener = new QuestionAdapter.OnQuestionClickListener() {
             @Override
             public void onQuestionClick(Question q, int position) {
-                Toast.makeText(getContext(),"пока не работает", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),"работает", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getContext(),QuestionDetailsActivity.class);
+                intent.putExtra(Question.QUEST,q.getQuest());
+                intent.putExtra(Question.ANSWER,q.getAnswer());
+                startActivity(intent);
             }
         };
 

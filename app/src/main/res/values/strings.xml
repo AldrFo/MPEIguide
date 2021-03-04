@@ -56,4 +56,5 @@
     <string name="notification_about_rating">Уведомления о новых оценках</string>
 
     <string name="search">Поиск</string>
+    <string name="quest_answer">Вопрос-Ответ</string>
 </resources>

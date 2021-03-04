@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Question {
 
+    public static final String QUEST = "quest";
+    public static final String ANSWER = "answer";
+
     public static final Question[] questions = {
             new Question("Как получить матпомощь?", "Как получить матпомощь?",
                     "Необходимо сходить в профбюро, составить там заявку на материальную " +
