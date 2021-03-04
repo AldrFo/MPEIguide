@@ -1,5 +1,6 @@
 package com.example.mpeiguide.info.organizations;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -34,7 +35,7 @@ public class OrganizationsFragment extends Fragment implements TextWatcher {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_organizations, container, false);
         back = v.findViewById(R.id.organization_back_button);
@@ -52,6 +53,15 @@ public class OrganizationsFragment extends Fragment implements TextWatcher {
             @Override
             public void onOrganizationClick(Organization org, int position) {
                 Toast.makeText(getContext(),"пока не работает",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getContext(),OrganizationDetailsActivity.class);
+                intent.putExtra(Organization.NAME,org.getOrgName());
+                intent.putExtra(Organization.VK_NAME,org.getVkName());
+                intent.putExtra(Organization.VK_LINK,org.getVkLink());
+                intent.putExtra(Organization.PRESIDENT,org.getPresident());
+                intent.putExtra(Organization.PLACE,org.getPlace());
+                intent.putExtra(Organization.DESCRIPTION,org.getDescription());
+                intent.putExtra(Organization.IMAGE_ID,org.getImageId());
+                startActivity(intent);
             }
         };
 
