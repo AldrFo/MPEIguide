@@ -1,8 +1,21 @@
 package com.example.mpeiguide.info.organizations;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Organization {
 
     public static final int NONE = 0;
+
+    public static final Organization[] organizations = {
+            new Organization("Профком","Профком вк","vk.com",
+                    "Ну кто-то лять, я не помню","та хуй его знает",
+                    "да идите куда подальше, мне лень думать надо нормальным описанием " +
+                            "вы бы еще сказали мне официальное поисание с группы в вк скатать, " +
+                            "делать мне больше нечего епта",NONE),
+            new Organization("РОкКлуБ", "хз","vk.com",
+                    "Горшок блин","Нирвана","Нет его",NONE)
+    };
 
     private String orgName;
     private String vkName;
@@ -50,6 +63,14 @@ public class Organization {
 
     public int getImageId() {
         return imageId;
+    }
+
+    public static List<Organization> getOrganizations(){
+        List<Organization> orgs = new ArrayList<>();
+        for(int i = 0;i<organizations.length;i++){
+            orgs.add(organizations[i]);
+        }
+        return orgs;
     }
 
 }

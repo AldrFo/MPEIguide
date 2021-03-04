@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.mpeiguide.R;
 import com.example.mpeiguide.info.contacts.ContactsFragment;
 import com.example.mpeiguide.info.faq.FaqFragment;
+import com.example.mpeiguide.info.organizations.OrganizationsFragment;
 
 public class InfoFragment extends Fragment implements View.OnClickListener{
 
@@ -53,6 +54,7 @@ public class InfoFragment extends Fragment implements View.OnClickListener{
                 loadFragment(ContactsFragment.newInstance());
                 break;
             case R.id.organization_button:
+                loadFragment(OrganizationsFragment.newInstance());
                 break;
             case R.id.sites_button:
                 break;
@@ -72,7 +74,7 @@ public class InfoFragment extends Fragment implements View.OnClickListener{
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.replace(R.id.frag_container,f);
-        ft.addToBackStack("toContacts");
+        ft.addToBackStack("toSomeInfo");
         ft.commit();
     }
 }
