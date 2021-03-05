@@ -15,6 +15,7 @@ import com.example.mpeiguide.R;
 import com.example.mpeiguide.info.contacts.ContactsFragment;
 import com.example.mpeiguide.info.faq.FaqFragment;
 import com.example.mpeiguide.info.organizations.OrganizationsFragment;
+import com.example.mpeiguide.info.sites.SitesFragment;
 
 public class InfoFragment extends Fragment implements View.OnClickListener{
 
@@ -57,6 +58,7 @@ public class InfoFragment extends Fragment implements View.OnClickListener{
                 loadFragment(OrganizationsFragment.newInstance());
                 break;
             case R.id.sites_button:
+                loadFragment(SitesFragment.newInstance());
                 break;
             case R.id.FAQ_button:
                 loadFragment(FaqFragment.newInstance());
