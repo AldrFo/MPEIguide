@@ -28,6 +28,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     public static final String GROUP_NAME = "group";
     public static final String ALARM_BUTTON = "alarm_button";
     public static final String SHOW_TEACHER = "show_teacher";
+    public static final String SHOW_PAIR_TYPE = "show_pair_type";
 
     private SharedPreferences settings;
 
@@ -37,6 +38,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
 
     private Switch alarmButton;
     private Switch showTeacher;
+    private Switch showPairType;
 
     public static SettingsFragment newInstance() {
         return new SettingsFragment();
@@ -69,6 +71,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
 
         setSwitch(v, alarmButton, R.id.alarm_button_switch, ALARM_BUTTON);
         setSwitch(v, showTeacher, R.id.teacher_name_switch, SHOW_TEACHER);
+        setSwitch(v, showPairType, R.id.pair_type_switch, SHOW_PAIR_TYPE);
 
         currentGroup.setText(group);
 
@@ -98,6 +101,12 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.teacher_name_switch:
                 settings.edit().putBoolean(SHOW_TEACHER,b).apply();
                 Log.d(MainActivity.MAIN_LOG,"SettingFragment: show teacher - " + b);
+                break;
+            case R.id.pair_type_switch:
+                settings.edit().putBoolean(SHOW_PAIR_TYPE,b).apply();
+                Log.d(MainActivity.MAIN_LOG,"SettingFragment: show pair type - " + b);
+                break;
+            case R.id.desc_switch:
                 break;
         }
     }

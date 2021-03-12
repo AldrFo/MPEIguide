@@ -65,6 +65,9 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         if(!settings.getBoolean(SettingsFragment.SHOW_TEACHER,true)){
             holder.infoLayout.removeView(holder.teacherName);
         }
+        if(!settings.getBoolean(SettingsFragment.SHOW_PAIR_TYPE,true)){
+            holder.infoLayout.removeView(holder.eventType);
+        }
     }
 
     @Override
