@@ -12,6 +12,7 @@ public class Searcher implements SearcherInterface {
 
     @Override
     public ArrayList search(String request) {
+
         if(request == null || request.length() == 0){
             Log.d(MainActivity.MAIN_LOG,"Searcher: request == null");
             return null;
