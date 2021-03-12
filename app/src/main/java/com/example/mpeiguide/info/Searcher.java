@@ -22,8 +22,10 @@ public class Searcher implements SearcherInterface {
 
         checkAboutRequest(request,results);
         int j = 0;
+
         Log.d(MainActivity.MAIN_LOG,"Searcher: amount of words == "
                 + getAmountOfWords(request));
+
         for(int i =0;i < getAmountOfWords(request);i++){
             StringBuilder singleWordRequest = new StringBuilder();
 
