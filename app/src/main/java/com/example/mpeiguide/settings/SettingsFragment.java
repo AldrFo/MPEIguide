@@ -1,9 +1,11 @@
 package com.example.mpeiguide.settings;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -12,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.mpeiguide.MainActivity;
@@ -27,6 +31,8 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     private SharedPreferences settings;
 
     private TextView currentGroup;
+
+    private TableRow groupLayout;
 
     private Switch alarmButton;
 
@@ -46,14 +52,33 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
 
         settings = getContext().getSharedPreferences(SETTING_NAME, Context.MODE_PRIVATE);
 
+        final String group = settings.getString(GROUP_NAME,"---");
         currentGroup = v.findViewById(R.id.current_group);
+
+        groupLayout = v.findViewById(R.id.change_group_row);
+        groupLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), ChangeGroupActivity.class);
+                intent.putExtra(GROUP_NAME,group);
+                startActivityForResult(intent,1);
+            }
+        });
+
         alarmButton = v.findViewById(R.id.alarm_button_switch);
         alarmButton.setChecked(settings.getBoolean(ALARM_BUTTON,true));
         alarmButton.setOnCheckedChangeListener(this);
 
-        currentGroup.setText(settings.getString(GROUP_NAME,"---"));
+        currentGroup.setText(group);
 
         return v;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        String group = data.getStringExtra(GROUP_NAME);
+        settings.edit().putString(GROUP_NAME,group).apply();
+        currentGroup.setText(group);
     }
 
     @Override
