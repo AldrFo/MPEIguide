@@ -13,7 +13,7 @@ public class Searcher implements SearcherInterface {
     @Override
     public ArrayList search(String request) {
 
-        if(request == null || request.length() == 0){
+        if(request == null || request.length() == 0) {
             Log.d(MainActivity.MAIN_LOG,"Searcher: request == null");
             return null;
         }
@@ -27,16 +27,16 @@ public class Searcher implements SearcherInterface {
         Log.d(MainActivity.MAIN_LOG,"Searcher: amount of words == "
                 + getAmountOfWords(request));
 
-        for(int i =0;i < getAmountOfWords(request);i++){
+        for( int i = 0; i < getAmountOfWords(request); ++i) {
             StringBuilder singleWordRequest = new StringBuilder();
 
-            while(request.charAt(j) == ' '){
-                j++;
+            while(request.charAt(j) == ' ') {
+                ++j;
             }
 
             while (j != request.length() && request.charAt(j) != ' ') {
                 singleWordRequest.append(request.charAt(j));
-                j++;
+                ++j;
             }
 
             Log.d(MainActivity.MAIN_LOG,"Searcher: full singleWordRequest == "
@@ -53,17 +53,21 @@ public class Searcher implements SearcherInterface {
     }
 
     @Override
+    public int NumberOfMatches(String request, String PoleOfObject) { return 0; }  //добавил сюда...хз зачем...
+
+    @Override
     public int getAmountOfWords(String request) {
 
         int count = 1;
         boolean flag = false;
 
-        for(int i = 0;i<request.length();i++){
+        for(int i = 0; i < request.length(); ++i) {
             if(request.charAt(i) == ' '){
                 flag = true;
             }
-            if(flag && request.charAt(i) != ' '){
-                count++;
+
+            if(flag && request.charAt(i) != ' ') {
+                ++count;
                 flag = false;
             }
         }

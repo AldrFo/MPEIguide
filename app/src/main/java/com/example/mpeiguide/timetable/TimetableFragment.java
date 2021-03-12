@@ -51,7 +51,6 @@ public class TimetableFragment extends Fragment {
             weekTimetable = (Timetable[]) SaveLoad.load(getContext(),"timetable.tmt");
         }catch (Exception e) {
             Log.d(MainActivity.MAIN_LOG,"LOAD EXCEPTION");
-            Log.d(MainActivity.MAIN_LOG, e.getMessage());
             for (int i = 0; i < weekTimetable.length; i++) {
                 weekTimetable[i] = new Timetable(i);
             }

@@ -8,6 +8,8 @@ public interface SearcherInterface {
 
     boolean isPassSearchCondition(String request, Object whereSearch);
 
+    int NumberOfMatches(String request, String PoleOfObject); //хз надо нет...
+
     int getAmountOfWords(String request);
 
     void checkAboutRequest(String request, ArrayList results);
