@@ -54,6 +54,7 @@ public class Searcher implements SearcherInterface {
 
     @Override
     public int getAmountOfWords(String request) {
+
         int count = 1;
         boolean flag = false;
 
