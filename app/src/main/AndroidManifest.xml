@@ -11,16 +11,15 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".info.organizations.OrganizationDetailsActivity"></activity>
         <activity android:name=".info.faq.QuestionDetailsActivity" />
-        <activity android:name=".StartActivity">
+        <activity android:name=".StartActivity"></activity>
+        <activity android:name=".timetable.CreateEventActivity" />
+        <activity android:name=".info.contacts.ContactDetailsActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".timetable.CreateEventActivity" />
-        <activity android:name=".info.contacts.ContactDetailsActivity" />
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -18,17 +21,34 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     public static final String MAIN_LOG = "my_main_log";
+    public static final String FIRST_ENTER = "first_enter";
 
     private BottomNavigationView menu;
+
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPreferences = getSharedPreferences(SettingsFragment.SETTING_NAME, Context.MODE_PRIVATE);
+        boolean firstEnter = sharedPreferences.getBoolean(FIRST_ENTER,true);
+
+        if(firstEnter){
+            Intent intent = new Intent(this, StartActivity.class);
+            startActivity(intent);
+        }
+
         setContentView(R.layout.activity_main);
 
         menu = findViewById(R.id.bottomNavigationView);
         menu.setOnNavigationItemSelectedListener(this);
         menu.setSelectedItemId(R.id.timetable);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     @Override

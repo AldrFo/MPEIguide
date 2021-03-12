@@ -16,27 +16,21 @@ import android.widget.Toast;
 
 import com.example.mpeiguide.settings.SettingsFragment;
 
+import static com.example.mpeiguide.MainActivity.FIRST_ENTER;
+
 public class StartActivity extends AppCompatActivity implements TextWatcher{
 
-    public static final String FIRST_ENTER = "first_enter";
-
     private EditText startEditText;
-    private boolean firstEnter;
 
     private SharedPreferences sharedPreferences;
+    private boolean firstEnter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        sharedPreferences = getSharedPreferences(SettingsFragment.SETTING_NAME,Context.MODE_PRIVATE);
-        firstEnter = sharedPreferences.getBoolean(FIRST_ENTER,true);
-
-        if(!firstEnter){
-            Intent intent = new Intent(this,MainActivity.class);
-            startActivity(intent);
-        }
+        sharedPreferences = getSharedPreferences(SettingsFragment.SETTING_NAME, Context.MODE_PRIVATE);
 
         startEditText = findViewById(R.id.start_edit_text);
         startEditText.addTextChangedListener(this);
@@ -60,6 +54,7 @@ public class StartActivity extends AppCompatActivity implements TextWatcher{
             boolean enteredYearOfGroup = false;
             int amountOfYearChars = 0;
             for (int j = 0;j<s.length();j++) {
+
                 char lastChar = s.charAt(j);
                 if (lastChar == '-' && !enteredTypeOfGroup && !enteredNumOfGroup && !enteredYearOfGroup) {
                     enteredTypeOfGroup = true;
