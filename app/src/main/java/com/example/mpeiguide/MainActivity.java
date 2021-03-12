@@ -13,7 +13,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.mpeiguide.bars.BarsFragment;
 import com.example.mpeiguide.info.InfoFragment;
+import com.example.mpeiguide.maps.MapsFragment;
 import com.example.mpeiguide.settings.SettingsFragment;
 import com.example.mpeiguide.timetable.TimetableFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -59,9 +61,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 loadFragment(TimetableFragment.newInstance());
                 return true;
             case R.id.bars:
+                loadFragment(BarsFragment.newInstance());
                 Log.d(MAIN_LOG,"select bars");
                 return true;
             case R.id.map:
+                loadFragment(MapsFragment.newInstance());
                 Log.d(MAIN_LOG,"select maps");
                 return true;
             case R.id.info:
