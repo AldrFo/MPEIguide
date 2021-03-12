@@ -62,13 +62,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 Log.d(MAIN_LOG,"select bars");
                 return true;
             case R.id.map:
-
+                Log.d(MAIN_LOG,"select maps");
                 return true;
             case R.id.info:
                 Log.d(MAIN_LOG,"select info");
                 loadFragment(InfoFragment.newInstance());
                 return true;
             case R.id.settings:
+                Log.d(MAIN_LOG,"select settings");
                 loadFragment(SettingsFragment.newInstance());
                 return true;
         }

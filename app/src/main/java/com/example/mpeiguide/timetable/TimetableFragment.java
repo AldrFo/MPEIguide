@@ -116,6 +116,11 @@ public class TimetableFragment extends Fragment {
     public void onPause() {
         super.onPause();
         Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onPause()====");
+        try {
+            SaveLoad.save(getContext(),"timetable.tmt",weekTimetable);
+        }catch (Exception e){
+            Log.d(MainActivity.MAIN_LOG,"SAVE EXCEPTION");
+        }
     }
 
     @Override
@@ -128,11 +133,6 @@ public class TimetableFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onDestroyView()====");
-        try {
-            SaveLoad.save(getContext(),"timetable.tmt",weekTimetable);
-        }catch (Exception e){
-            Log.d(MainActivity.MAIN_LOG,"SAVE EXCEPTION");
-        }
     }
 
     @Override
