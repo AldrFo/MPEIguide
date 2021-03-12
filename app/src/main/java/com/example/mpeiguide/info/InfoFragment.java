@@ -1,5 +1,7 @@
 package com.example.mpeiguide.info;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.mpeiguide.R;
@@ -16,6 +19,7 @@ import com.example.mpeiguide.info.contacts.ContactsFragment;
 import com.example.mpeiguide.info.faq.FaqFragment;
 import com.example.mpeiguide.info.organizations.OrganizationsFragment;
 import com.example.mpeiguide.info.sites.SitesFragment;
+import com.example.mpeiguide.settings.SettingsFragment;
 
 public class InfoFragment extends Fragment implements View.OnClickListener{
 
@@ -45,6 +49,14 @@ public class InfoFragment extends Fragment implements View.OnClickListener{
         sitesButton.setOnClickListener(this);
         faqButton.setOnClickListener(this);
         psihButton.setOnClickListener(this);
+
+        SharedPreferences settings = getContext()
+                .getSharedPreferences(SettingsFragment.SETTING_NAME, Context.MODE_PRIVATE);
+
+        if(!settings.getBoolean(SettingsFragment.ALARM_BUTTON,true)){
+            LinearLayout layout = v.findViewById(R.id.info_layout);
+            layout.removeView(psihButton);
+        }
         return v;
     }
 
