@@ -1,10 +1,12 @@
 package com.example.mpeiguide.timetable;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mpeiguide.MainActivity;
 import com.example.mpeiguide.R;
+import com.example.mpeiguide.settings.SettingsFragment;
 
 import java.util.List;
 
@@ -25,8 +28,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     private final List<Event> events;
     private OnEventClickListener eventClickListener;
 
+    private SharedPreferences settings;
+
     public EventAdapter(Context context, List<Event> events, OnEventClickListener eventClickListener){
         inflater = LayoutInflater.from(context);
+        settings = context.getSharedPreferences(SettingsFragment.SETTING_NAME,Context.MODE_PRIVATE);
         this.events = events;
         this.eventClickListener = eventClickListener;
     }
@@ -55,6 +61,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                 eventClickListener.onEventClick(event,position);
             }
         });
+
+        if(!settings.getBoolean(SettingsFragment.SHOW_TEACHER,true)){
+            holder.infoLayout.removeView(holder.teacherName);
+        }
     }
 
     @Override
@@ -63,6 +73,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
+
+        final LinearLayout infoLayout;
 
         final TextView startTime, endTime;
         final TextView eventName;
@@ -73,6 +85,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
         public ViewHolder(View v){
             super(v);
+            infoLayout = v.findViewById(R.id.event_info_layout);
             startTime = v.findViewById(R.id.event_start_time);
             endTime = v.findViewById(R.id.event_end_time);
             eventName = v.findViewById(R.id.event_name);

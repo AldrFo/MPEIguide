@@ -27,6 +27,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
 
     public static final String GROUP_NAME = "group";
     public static final String ALARM_BUTTON = "alarm_button";
+    public static final String SHOW_TEACHER = "show_teacher";
 
     private SharedPreferences settings;
 
@@ -35,6 +36,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     private TableRow groupLayout;
 
     private Switch alarmButton;
+    private Switch showTeacher;
 
     public static SettingsFragment newInstance() {
         return new SettingsFragment();
@@ -65,13 +67,18 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             }
         });
 
-        alarmButton = v.findViewById(R.id.alarm_button_switch);
-        alarmButton.setChecked(settings.getBoolean(ALARM_BUTTON,true));
-        alarmButton.setOnCheckedChangeListener(this);
+        setSwitch(v, alarmButton, R.id.alarm_button_switch, ALARM_BUTTON);
+        setSwitch(v, showTeacher, R.id.teacher_name_switch, SHOW_TEACHER);
 
         currentGroup.setText(group);
 
         return v;
+    }
+
+    private void setSwitch(View parent,Switch s, int id, String dataKey){
+        s = parent.findViewById(id);
+        s.setChecked(settings.getBoolean(dataKey,true));
+        s.setOnCheckedChangeListener(this);
     }
 
     @Override
@@ -87,6 +94,10 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.alarm_button_switch:
                 settings.edit().putBoolean(ALARM_BUTTON,b).apply();
                 Log.d(MainActivity.MAIN_LOG,"SettingFragment: alarm button - " + b);
+                break;
+            case R.id.teacher_name_switch:
+                settings.edit().putBoolean(SHOW_TEACHER,b).apply();
+                Log.d(MainActivity.MAIN_LOG,"SettingFragment: show teacher - " + b);
                 break;
         }
     }
