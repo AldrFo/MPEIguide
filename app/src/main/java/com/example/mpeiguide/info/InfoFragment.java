@@ -1,7 +1,9 @@
 package com.example.mpeiguide.info;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -76,6 +78,8 @@ public class InfoFragment extends Fragment implements View.OnClickListener{
                 loadFragment(FaqFragment.newInstance());
                 break;
             case R.id.da_ya_psih_button:
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:1234567"));
+                startActivity(intent);
                 break;
         }
     }
