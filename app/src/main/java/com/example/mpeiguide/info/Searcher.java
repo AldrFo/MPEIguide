@@ -56,6 +56,7 @@ public class Searcher implements SearcherInterface {
     public int getAmountOfWords(String request) {
         int count = 1;
         boolean flag = false;
+
         for(int i = 0;i<request.length();i++){
             if(request.charAt(i) == ' '){
                 flag = true;
