@@ -19,7 +19,9 @@ public class OrganizationSearcher extends Searcher {
     @Override
     public boolean isPassSearchCondition(String request, Object whereSearch) {
         Organization org = (Organization) whereSearch;
-        return org.getOrgName().toLowerCase().contains(request) || org.getVkName().toLowerCase().contains(request);
+        String OrgName = org.getOrgName().toLowerCase();
+        String VKName = org.getVkName().toLowerCase();
+        return NumberOfMatches(request, OrgName) || NumberOfMatches(request, VKName);
     }
 
     @Override
@@ -31,4 +33,5 @@ public class OrganizationSearcher extends Searcher {
             }
         }
     }
+
 }

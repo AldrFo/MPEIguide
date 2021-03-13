@@ -39,18 +39,8 @@ public class ContactSearcher extends Searcher {
 
         String place = contact.getPlace().toLowerCase();
 
-        return name.contains(request) || workPos.contains(request) ||
-                phoneNumber.contains(request) || desc.contains(request) || place.contains(request);
+        return NumberOfMatches(request, name) || NumberOfMatches(request, workPos) ||
+                NumberOfMatches(request, phoneNumber) || NumberOfMatches(request, desc) || NumberOfMatches(request, place);
     }
 
-    public int NumberOfMatches(String request, String PoleOfObject) {  //сравнивает строку запроса со строкой объекта
-        int Quantity = 0;                                              //допускать будет до 1-2 несовпадений (считать это верным)
-        int j = 0;                                                    //этот метод вставить в метод обрабатывающий запрос (какие записи показывать)
-        for ( int i = 0; i < request.length(); ++i) {
-            if( request.charAt(j) != PoleOfObject.charAt(j)) {
-                ++Quantity;
-            }
-        }
-        return Quantity;
-    }
 }

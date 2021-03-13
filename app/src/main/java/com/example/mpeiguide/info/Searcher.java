@@ -40,7 +40,7 @@ public class Searcher implements SearcherInterface {
             }
 
             Log.d(MainActivity.MAIN_LOG,"Searcher: full singleWordRequest == "
-                    + singleWordRequest.toString());
+                     + singleWordRequest.toString());
 
             checkAboutRequest(singleWordRequest.toString(), results);
         }
@@ -53,7 +53,20 @@ public class Searcher implements SearcherInterface {
     }
 
     @Override
-    public int NumberOfMatches(String request, String PoleOfObject) { return 0; }  //добавил сюда...хз зачем...
+    public boolean NumberOfMatches(String request, String PoleOfObject) {
+        double Quantity = 0;
+        int LEN = 0;
+
+        if (request.length() <= PoleOfObject.length()) { LEN = request.length();}
+        else { LEN = PoleOfObject.length();}
+
+        for ( int i = 0; i < LEN; ++i) {
+            if( request.charAt(i) != PoleOfObject.charAt(i)) {
+                ++Quantity;
+            }
+        }
+        return (Quantity/request.length() < 0.30 ); // считает запрос верным при наличии в нём 30% ошибок
+    }
 
     @Override
     public int getAmountOfWords(String request) {
