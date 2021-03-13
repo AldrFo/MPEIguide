@@ -20,6 +20,8 @@ import com.example.mpeiguide.SaveLoad;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+
 public class TimetableFragment extends Fragment {
 
     private ViewPager vp;
@@ -95,9 +97,24 @@ public class TimetableFragment extends Fragment {
 
         weekTimetable[pageNum].addToTimetable(event);
 
+        sortEventsByTime(weekTimetable[pageNum]);
+
         fpa = new MyFragmentPagerAdapter(getFragmentManager(),getContext(),weekTimetable);
         vp.setAdapter(fpa);
         vp.setCurrentItem(pageNum);
+    }
+
+    private void sortEventsByTime(Timetable t){
+        ArrayList<Event> timetable = t.getTimetable();
+        for(int i = 0;i < timetable.size();i++){
+            for(int j = 1; j < timetable.size();j++){
+                if(timetable.get(j-1).getStartTimeInMinutes() > timetable.get(j).getStartTimeInMinutes()){
+                    Event e = timetable.get(j-1);
+                    timetable.set(j-1,timetable.get(j));
+                    timetable.set(j,e);
+                }
+            }
+        }
     }
 
     @Override

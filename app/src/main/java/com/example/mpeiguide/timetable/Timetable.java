@@ -89,6 +89,10 @@ public class Timetable implements Serializable {
         return timetable;
     }
 
+    public void setTimetable(ArrayList<Event> events){
+        timetable = events;
+    }
+
     public void addToTimetable(Event e){
         timetable.add(e);
     }

@@ -1,5 +1,9 @@
 package com.example.mpeiguide.timetable;
 
+import android.util.Log;
+
+import com.example.mpeiguide.MainActivity;
+
 import java.io.Serializable;
 
 public class Event implements Serializable {
@@ -33,6 +37,30 @@ public class Event implements Serializable {
         this.place = place;
         this.teacherName = teacherName;
         this.description = description;
+    }
+
+    public int getStartTimeInMinutes(){
+        if(startTime.equals("")){
+            return 0;
+        }
+        int minutes;
+        char[] time = startTime.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        while (time[i] != ':'){
+            sb.append(time[i]);
+            i++;
+        }
+        minutes = Integer.parseInt(sb.toString())*60;
+        Log.d(MainActivity.MAIN_LOG,"Event: hours in minutes == " + minutes);
+        sb = new StringBuilder();
+        for(int j = i+1; j < time.length;j++){
+            sb.append(time[j]);
+        }
+        minutes += Integer.parseInt(sb.toString());
+
+        return minutes;
+
     }
 
     public String getStartTime() {
