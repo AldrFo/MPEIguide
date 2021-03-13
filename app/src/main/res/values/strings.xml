@@ -61,4 +61,6 @@
     <string name="vk_group">Группа ВК: </string>
     <string name="president">Председатель: </string>
     <string name="place">Аудитория: </string>
+
+    <string name="delete_event">Удалить событие</string>
 </resources>

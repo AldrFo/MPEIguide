@@ -71,6 +71,7 @@ public class TimetableFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(),CreateEventActivity.class);
                 intent.putExtra(PageFragment.ARG_PAGE_NUMBER,vp.getCurrentItem());
+                intent.putExtra(CreateEventActivity.TITLE,CreateEventActivity.CREATE);
                 startActivityForResult(intent, 1);
             }
         });

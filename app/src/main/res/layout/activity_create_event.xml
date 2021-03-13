@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/create_event_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".timetable.CreateEventActivity">
 
     <TextView
+        android:id="@+id/create_event_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/create_event"
@@ -155,5 +157,12 @@
         android:layout_height="wrap_content"
         android:text="@string/ok"
         style="@style/RoundedCornerButton"/>
+
+    <Button
+        android:id="@+id/create_event_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/RoundedCornerButton"
+        android:text="@string/delete_event" />
 
 </LinearLayout>

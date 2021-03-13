@@ -58,6 +58,7 @@ public class PageFragment extends Fragment {
             @Override
             public void onEventClick(Event e, int position) {
                 Intent intent = new Intent(getContext(),CreateEventActivity.class);
+                intent.putExtra(CreateEventActivity.TITLE,CreateEventActivity.EDIT);
                 intent.putExtra(Event.EVENT_NAME,e.getEventName());
                 intent.putExtra(Event.START_TIME,e.getStartTime());
                 intent.putExtra(Event.END_TIME,e.getEndTime());
@@ -65,6 +66,7 @@ public class PageFragment extends Fragment {
                 intent.putExtra(Event.DESCRIPTION,e.getDescription());
                 intent.putExtra(Event.EVENT_TYPE,e.getEventType());
                 intent.putExtra(Event.PLACE,e.getPlace());
+                intent.putExtra(Event.POSITION, position);
                 startActivityForResult(intent,position);
             }
         };
@@ -83,19 +85,27 @@ public class PageFragment extends Fragment {
         if(data == null){
             return;
         }
-        String name = data.getStringExtra(Event.EVENT_NAME);
-        String startTime = data.getStringExtra(Event.START_TIME);
-        String endTime = data.getStringExtra(Event.END_TIME);
-        String teacherName = data.getStringExtra(Event.TEACHER_NAME);
-        String eventType = data.getStringExtra(Event.EVENT_TYPE);
-        String place = data.getStringExtra(Event.PLACE);
-        String description = data.getStringExtra(Event.DESCRIPTION);
+        EventAdapter adapter = new EventAdapter(getContext(), timetable, eventClickListener);
+        switch (requestCode) {
+            case CreateEventActivity.CREATE_CODE:
+                String name = data.getStringExtra(Event.EVENT_NAME);
+                String startTime = data.getStringExtra(Event.START_TIME);
+                String endTime = data.getStringExtra(Event.END_TIME);
+                String teacherName = data.getStringExtra(Event.TEACHER_NAME);
+                String eventType = data.getStringExtra(Event.EVENT_TYPE);
+                String place = data.getStringExtra(Event.PLACE);
+                String description = data.getStringExtra(Event.DESCRIPTION);
 
-        Event event = new Event(startTime,endTime,name,eventType,place,teacherName,description);
-        timetable.set(requestCode,event);
+                Event event = new Event(startTime, endTime, name, eventType, place, teacherName, description);
+                timetable.set(requestCode, event);
 
-        EventAdapter adapter = new EventAdapter(getContext(),timetable,eventClickListener);
-        recyclerView.setAdapter(adapter);
+                recyclerView.setAdapter(adapter);
+                break;
+            case CreateEventActivity.DELETE_CODE:
+                timetable.remove(data.getIntExtra(Event.POSITION,0));
+                recyclerView.setAdapter(adapter);
+                break;
+        }
     }
 
     @Override
