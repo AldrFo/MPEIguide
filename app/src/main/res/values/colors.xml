@@ -7,4 +7,10 @@
     <color name="iconColor">#787878</color>
     <color name="event_main_color">#EAEAEA</color>
     <color name="event_sec_color">#B1B1B1</color>
+
+    <color name="event_lecture_color">#B50000</color>
+    <color name="event_sem_color">#0033B5</color>
+    <color name="event_lab_color">#FFDD00</color>
+    <color name="event_user_color">#30B500</color>
+
 </resources>

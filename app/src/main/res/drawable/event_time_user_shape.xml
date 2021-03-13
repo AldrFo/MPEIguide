@@ -1,0 +1,14 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/event_main_color"/>
+            <corners android:topLeftRadius="10sp"/>
+        </shape>
+    </item>
+    <item android:width="10sp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/event_user_color"/>
+            <corners android:topLeftRadius="10sp"/>
+        </shape>
+    </item>
+</layer-list>

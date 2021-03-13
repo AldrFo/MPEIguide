@@ -55,6 +55,21 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         holder.teacherName.setText(event.getTeacherName());
         holder.description.setText(event.getDescription());
 
+        switch (event.getEventType()){
+            case Event.LECTURE:
+                holder.timeLayout.setBackgroundResource(R.drawable.event_time_lecture_shape);
+                break;
+            case Event.LAB:
+                holder.timeLayout.setBackgroundResource(R.drawable.event_time_lab_shape);
+                break;
+            case Event.SEMINAR:
+                holder.timeLayout.setBackgroundResource(R.drawable.event_time_sem_shape);
+                break;
+            default:
+                holder.timeLayout.setBackgroundResource(R.drawable.event_time_user_shape);
+                break;
+        }
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,6 +93,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         final LinearLayout infoLayout;
+        final LinearLayout timeLayout;
 
         final TextView startTime, endTime;
         final TextView eventName;
@@ -89,6 +105,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         public ViewHolder(View v){
             super(v);
             infoLayout = v.findViewById(R.id.event_info_layout);
+            timeLayout = v.findViewById(R.id.event_time_layout);
             startTime = v.findViewById(R.id.event_start_time);
             endTime = v.findViewById(R.id.event_end_time);
             eventName = v.findViewById(R.id.event_name);

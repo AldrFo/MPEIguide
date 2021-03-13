@@ -25,10 +25,10 @@ public class Timetable implements Serializable {
             case MONDAY:
                 events = new Event[]{
                         new Event("11:10", "12:45", "Информатика",
-                                "Практика", "А-310",
+                                Event.SEMINAR, "А-310",
                                 "Аляева Юлия Владимировна", "---"),
                         new Event("13:45", "15:20", "Программирование",
-                                "Лабораторная работа", "Ж-111",
+                                Event.LAB, "Ж-111",
                                 "Гречкина Полина Викторовна", "----")
                 };
                 break;

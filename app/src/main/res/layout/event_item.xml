@@ -15,11 +15,11 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/event_time_layout"
+            android:layout_width="75sp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:gravity="center"
-            android:background="@drawable/event_time_shape"
+            android:background="@drawable/event_time_lecture_shape"
             android:orientation="vertical">
 
             <TextView

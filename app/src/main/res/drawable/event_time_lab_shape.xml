@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
@@ -8,7 +7,7 @@
     </item>
     <item android:width="10sp">
         <shape android:shape="rectangle">
-            <solid android:color="@color/colorAccent"/>
+            <solid android:color="@color/event_lab_color"/>
             <corners android:topLeftRadius="10sp"/>
         </shape>
     </item>
