@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="5sp"
+    android:layout_marginEnd="5sp"
+    android:layout_marginTop="7sp"
+    android:layout_marginBottom="7sp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/site_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="5sp"
+        android:paddingEnd="5sp"
+        style="@style/FatText"
+        android:textSize="20sp"
+        android:background="@drawable/site_name_shape"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/site_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="5sp"
+        android:paddingEnd="5sp"
+        android:background="@drawable/site_description_shape"
+        android:text="TextView" />
+</LinearLayout>

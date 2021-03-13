@@ -54,4 +54,11 @@
     <string name="show_description">Отображение заметок</string>
     <string name="change_user">Изменить пользователя</string>
     <string name="notification_about_rating">Уведомления о новых оценках</string>
+
+    <string name="search">Поиск</string>
+    <string name="quest_answer">Вопрос-Ответ</string>
+
+    <string name="vk_group">Группа ВК: </string>
+    <string name="president">Председатель: </string>
+    <string name="place">Аудитория: </string>
 </resources>

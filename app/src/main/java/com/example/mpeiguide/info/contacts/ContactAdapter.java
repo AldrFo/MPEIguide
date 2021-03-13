@@ -19,7 +19,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         public void onContactClick(Contact contact, int position);
     }
 
-    private final int MAX_DESC_LENGTH = 50;
+    private static final int MAX_DESC_LENGTH = 50;
 
     private final LayoutInflater inflater;
     private final List<Contact> contacts;
