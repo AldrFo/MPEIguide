@@ -14,7 +14,7 @@
 
         <ImageButton
             android:id="@+id/contact_backButton"
-            style="@style/RoundedCornerButton"
+            style="@style/BackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/abc_vector_test" />

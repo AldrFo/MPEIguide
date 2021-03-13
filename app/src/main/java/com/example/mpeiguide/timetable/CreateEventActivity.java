@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -38,6 +39,7 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
 
     private Button okButton;
     private Button deleteButton;
+    private ImageButton backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,14 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
         okButton.setOnClickListener(this);
 
         deleteButton = findViewById(R.id.create_event_delete);
+
+        backButton = findViewById(R.id.create_event_back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         try {
             final Intent intent = getIntent();

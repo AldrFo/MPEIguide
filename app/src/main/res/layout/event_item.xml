@@ -27,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginStart="5sp"
                 android:textSize="20sp"
                 android:text="9:20"
                 />
@@ -36,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginStart="5sp"
                 android:textSize="15sp"
                 android:text="10:55" />
         </LinearLayout>
@@ -76,6 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="13sp"
+                android:layout_marginBottom="5sp"
                 android:text="Корецкая И. В." />
         </LinearLayout>
     </LinearLayout>
@@ -89,7 +92,10 @@
             android:id="@+id/event_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10sp"
+            android:paddingStart="7sp"
+            android:paddingEnd="7sp"
+            android:paddingTop="3sp"
+            android:paddingBottom="3sp"
             android:gravity="center_vertical"
             android:text="См. фото на телефоне" />
     </TableRow>

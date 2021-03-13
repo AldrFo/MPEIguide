@@ -8,12 +8,24 @@
     android:orientation="vertical"
     tools:context=".timetable.CreateEventActivity">
 
-    <TextView
-        android:id="@+id/create_event_title"
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/create_event"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/create_event_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BackButton"
+            app:srcCompat="@drawable/abc_vector_test" />
+
+        <TextView
+            android:id="@+id/create_event_title"
+            style="@style/FatText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_event" />
+    </TableRow>
 
     <TableLayout
         android:layout_width="match_parent"

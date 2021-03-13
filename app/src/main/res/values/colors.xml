@@ -13,4 +13,7 @@
     <color name="event_lab_color">#FFDD00</color>
     <color name="event_user_color">#30B500</color>
 
+    <color name="buttons_color">#B1B1B1</color>
+
+    <color name="search_edit_text_color">#DCDCDC</color>
 </resources>

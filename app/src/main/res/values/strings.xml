@@ -63,4 +63,6 @@
     <string name="place">Аудитория: </string>
 
     <string name="delete_event">Удалить событие</string>
+
+    <string name="enter_request">Введите запрос</string>
 </resources>
