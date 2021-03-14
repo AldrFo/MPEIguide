@@ -35,12 +35,10 @@ public class ContactSearcher extends Searcher {
 
         String phoneNumber = contact.getPhoneNumber().toLowerCase();
 
-        String desc = contact.getDescription().toLowerCase();
-
         String place = contact.getPlace().toLowerCase();
 
-        return NumberOfMatches(request, name) || NumberOfMatches(request, workPos) ||
-                NumberOfMatches(request, phoneNumber) || NumberOfMatches(request, place);
+        return isNotTooMuchMistakes(request, name) || isNotTooMuchMistakes(request, workPos) ||
+                isNotTooMuchMistakes(request, phoneNumber) || isNotTooMuchMistakes(request, place);
     }
 
 }

@@ -52,22 +52,22 @@ public class Searcher implements SearcherInterface {
     }
 
     @Override
-    public boolean NumberOfMatches(String request, String PoleOfObject) {
-        double Quantity = 0;
-        int LEN = 0;
+    public boolean isNotTooMuchMistakes(String request, String poleOfObject) {
+        double quantity = 0;
+        int length;
 
-        if(request.length() <= PoleOfObject.length()) {
-            LEN = request.length();
+        if(request.length() <= poleOfObject.length()) {
+            length = request.length();
         }else{
-            LEN = PoleOfObject.length();
+            length = poleOfObject.length();
         }
 
-        for ( int i = 0; i < LEN; ++i) {
-            if( request.charAt(i) != PoleOfObject.charAt(i)) {
-                ++Quantity;
+        for (int i = 0; i < length; i++) {
+            if(request.charAt(i) != poleOfObject.charAt(i)){
+                ++quantity;
             }
         }
-        return (Quantity/request.length() < 0.30 ); // считает запрос верным при наличии в нём 30% ошибок
+        return (quantity/request.length() < 0.30 ); // считает запрос верным при наличии в нём 30% ошибок
     }
 
     @Override
@@ -76,7 +76,7 @@ public class Searcher implements SearcherInterface {
         int count = 1;
         boolean flag = false;
 
-        for(int i = 0; i < request.length(); ++i) {
+        for(int i = 0; i < request.length(); i++) {
             if(request.charAt(i) == ' '){
                 flag = true;
             }

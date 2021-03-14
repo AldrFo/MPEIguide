@@ -8,7 +8,7 @@ public interface SearcherInterface {
 
     boolean isPassSearchCondition(String request, Object whereSearch);
 
-    boolean NumberOfMatches(String request, String PoleOfObject);
+    boolean isNotTooMuchMistakes(String request, String PoleOfObject);
 
     int getAmountOfWords(String request);
 
