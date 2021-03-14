@@ -52,7 +52,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
         char[] shortDescChar = contact.getDescription().toCharArray();
         StringBuilder shortDesc = new StringBuilder();
-        shortDesc.append("  ");
         if(shortDescChar.length >= MAX_DESC_LENGTH-3) {
             for (int i = 0; i < MAX_DESC_LENGTH-3; i++) {
                 shortDesc.append(shortDescChar[i]);
