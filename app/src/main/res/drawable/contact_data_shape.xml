@@ -5,6 +5,7 @@
             <solid android:color="@color/event_main_color"/>
             <corners
                 android:topRightRadius="10sp"
+                android:topLeftRadius="10sp"
                 />
         </shape>
     </item>
