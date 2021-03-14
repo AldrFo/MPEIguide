@@ -3,22 +3,22 @@
     <!--TODO: Изменить иконки на соответствующие пунктам меню -->
     <item
         android:id="@+id/timetable"
-        android:icon="@android:mipmap/sym_def_app_icon"
+        android:icon="@drawable/ic_timetable"
         android:title="@string/timetable" />
     <item
         android:id="@+id/bars"
-        android:icon="@android:mipmap/sym_def_app_icon"
+        android:icon="@drawable/ic_bars"
         android:title="@string/BARS" />
     <item
         android:id="@+id/map"
-        android:icon="@android:mipmap/sym_def_app_icon"
+        android:icon="@drawable/ic_map"
         android:title="@string/map" />
     <item
         android:id="@+id/info"
-        android:icon="@android:mipmap/sym_def_app_icon"
+        android:icon="@drawable/ic_information"
         android:title="@string/info" />
     <item
         android:id="@+id/settings"
-        android:icon="@android:mipmap/sym_def_app_icon"
+        android:icon="@drawable/ic_settings"
         android:title="@string/settings" />
 </menu>

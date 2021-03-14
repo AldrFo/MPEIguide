@@ -51,7 +51,7 @@ public class SitesFragment extends Fragment implements TextWatcher {
                              Bundle savedInstanceState) {
         this.inflater = inflater;
         View v = inflater.inflate(R.layout.fragment_sites, container, false);
-        search = v.findViewById(R.id.sites_search);
+        search = v.findViewById(R.id.sites_search2);
         search.addTextChangedListener(this);
         back = v.findViewById(R.id.sites_back);
         back.setOnClickListener(new View.OnClickListener() {

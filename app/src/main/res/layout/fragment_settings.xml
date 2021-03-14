@@ -16,26 +16,26 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginTop="5sp"
         android:text="@string/common_settings" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="79dp"
         android:background="@drawable/settings_background_shape"
         android:orientation="vertical">
 
         <TableRow
+            android:id="@+id/change_group_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/change_group_row"
             android:layout_marginStart="3sp"
             android:layout_marginEnd="3sp">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:layout_weight="1"
                 android:text="@string/change_group" />
 
@@ -55,7 +55,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/alarm_button" />
 
@@ -71,19 +71,19 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="31dp"
         android:layout_marginTop="5sp"
         android:text="@string/timetable_settings" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="128dp"
         android:background="@drawable/settings_background_shape"
         android:orientation="vertical">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="37dp"
             android:layout_marginStart="3sp"
             android:layout_marginEnd="3sp">
 
@@ -102,7 +102,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="38dp"
             android:layout_marginStart="3sp"
             android:layout_marginEnd="3sp">
 
@@ -141,21 +141,21 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="29dp"
         android:layout_marginTop="5sp"
         android:text="@string/bars_settings" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="69dp"
         android:background="@drawable/settings_background_shape"
         android:orientation="vertical">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="32dp"
             android:layout_marginStart="3sp"
-            android:layout_marginEnd="3sp" >
+            android:layout_marginEnd="3sp">
 
             <TextView
                 android:layout_width="wrap_content"

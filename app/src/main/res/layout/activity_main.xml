@@ -21,5 +21,7 @@
         android:background="@color/bottomMenuColor"
         app:menu="@menu/bottom_menu"
         app:itemIconTint="@color/iconColor"
-        app:itemTextColor="@color/iconColor"/>
+        app:itemTextColor="@color/iconColor"
+        app:itemIconSize="30dp"
+        />
 </LinearLayout>
