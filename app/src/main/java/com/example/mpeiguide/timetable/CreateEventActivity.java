@@ -86,8 +86,11 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
                 @Override
                 public void onClick(View view) {
                     Intent data = new Intent();
-                    data.putExtra(Event.POSITION, intent.getIntExtra(Event.POSITION,0));
+                    int pos = intent.getIntExtra(Event.POSITION,0);
+                    data.putExtra(Event.POSITION, pos);
                     setResult(DELETE_CODE, data);
+                    Log.d(MainActivity.MAIN_LOG,"CreateEventActivity: delete button click");
+                    Log.d(MainActivity.MAIN_LOG, "CreateEventActivity: event position - " + pos);
                     finish();
                 }
             });

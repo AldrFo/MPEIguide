@@ -82,11 +82,14 @@ public class PageFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.d(MainActivity.MAIN_LOG,"PageFragment: onActivityResult entered");
+        Log.d(MainActivity.MAIN_LOG,"PageFragment: onActivityResult requestCode = " + requestCode);
         if(data == null){
+            Log.d(MainActivity.MAIN_LOG,"PageFragment: onActivityResult - data is null");
             return;
         }
-        EventAdapter adapter = new EventAdapter(getContext(), timetable, eventClickListener);
-        switch (requestCode) {
+        EventAdapter adapter;
+        switch (resultCode) {
             case CreateEventActivity.CREATE_CODE:
                 String name = data.getStringExtra(Event.EVENT_NAME);
                 String startTime = data.getStringExtra(Event.START_TIME);
@@ -99,10 +102,15 @@ public class PageFragment extends Fragment {
                 Event event = new Event(startTime, endTime, name, eventType, place, teacherName, description);
                 timetable.set(requestCode, event);
 
+                adapter = new EventAdapter(getContext(), timetable, eventClickListener);
                 recyclerView.setAdapter(adapter);
                 break;
             case CreateEventActivity.DELETE_CODE:
-                timetable.remove(data.getIntExtra(Event.POSITION,0));
+                int position = data.getIntExtra(Event.POSITION,0);
+                Log.d(MainActivity.MAIN_LOG,"PageFragment: deleted event  - "
+                        + position + " (" + timetable.get(position).getEventName() + ")");
+                timetable.remove(position);
+                adapter = new EventAdapter(getContext(), timetable, eventClickListener);
                 recyclerView.setAdapter(adapter);
                 break;
         }
