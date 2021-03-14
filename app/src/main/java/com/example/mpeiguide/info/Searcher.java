@@ -21,7 +21,6 @@ public class Searcher implements SearcherInterface {
         request = request.toLowerCase();
         ArrayList<Contact> results = new ArrayList<>();
 
-        checkAboutRequest(request,results);
         int j = 0;
 
         Log.d(MainActivity.MAIN_LOG,"Searcher: amount of words == "
@@ -57,8 +56,11 @@ public class Searcher implements SearcherInterface {
         double Quantity = 0;
         int LEN = 0;
 
-        if (request.length() <= PoleOfObject.length()) { LEN = request.length();}
-        else { LEN = PoleOfObject.length();}
+        if(request.length() <= PoleOfObject.length()) {
+            LEN = request.length();
+        }else{
+            LEN = PoleOfObject.length();
+        }
 
         for ( int i = 0; i < LEN; ++i) {
             if( request.charAt(i) != PoleOfObject.charAt(i)) {

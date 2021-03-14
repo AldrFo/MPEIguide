@@ -40,7 +40,7 @@ public class ContactSearcher extends Searcher {
         String place = contact.getPlace().toLowerCase();
 
         return NumberOfMatches(request, name) || NumberOfMatches(request, workPos) ||
-                NumberOfMatches(request, phoneNumber) || NumberOfMatches(request, desc) || NumberOfMatches(request, place);
+                NumberOfMatches(request, phoneNumber) || NumberOfMatches(request, place);
     }
 
 }
