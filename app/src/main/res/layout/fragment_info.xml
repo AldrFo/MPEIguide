@@ -18,7 +18,7 @@
             android:id="@+id/info_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10sp"
+            android:layout_marginStart="15dp"
             style="@style/FatText"
             android:text="@string/another_info" />
 
@@ -26,6 +26,7 @@
             android:id="@+id/contacts_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             style="@style/RoundedCornerButton"
             android:text="@string/contacts" />
 
@@ -33,6 +34,7 @@
             android:id="@+id/organization_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             style="@style/RoundedCornerButton"
             android:text="@string/organizations" />
 
@@ -40,6 +42,7 @@
             android:id="@+id/sites_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             style="@style/RoundedCornerButton"
             android:text="@string/sites" />
 
@@ -47,6 +50,7 @@
             android:id="@+id/FAQ_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             style="@style/RoundedCornerButton"
             android:text="@string/FAQ" />
 
@@ -54,6 +58,7 @@
             android:id="@+id/da_ya_psih_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             style="@style/RoundedCornerButton"
             android:text="@string/kukuha_edet_pamagiti" />
 
