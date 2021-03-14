@@ -15,7 +15,7 @@ public class QuestionSearcher extends Searcher {
     @Override
     public boolean isPassSearchCondition(String request, Object whereSearch) {
         Question question = (Question) whereSearch;
-        return isNotTooMuchMistakes(request, question.getQuest().toLowerCase());
+        return isContainsRequest(request, question.getQuest().toLowerCase());
     }
 
     @Override
