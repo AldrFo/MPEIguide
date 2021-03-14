@@ -21,7 +21,7 @@ public class OrganizationSearcher extends Searcher {
         Organization org = (Organization) whereSearch;
         String OrgName = org.getOrgName().toLowerCase();
         String VKName = org.getVkName().toLowerCase();
-        return NumberOfMatches(request, OrgName) || NumberOfMatches(request, VKName);
+        return isNotTooMuchMistakes(request, OrgName) || isNotTooMuchMistakes(request, VKName);
     }
 
     @Override
