@@ -37,8 +37,8 @@ public class ContactSearcher extends Searcher {
 
         String place = contact.getPlace().toLowerCase();
 
-        return isNotTooMuchMistakes(request, name) || isNotTooMuchMistakes(request, workPos) ||
-                isNotTooMuchMistakes(request, phoneNumber) || isNotTooMuchMistakes(request, place);
+        return isContainsRequest(request, name) || isContainsRequest(request, workPos) ||
+                isContainsRequest(request, phoneNumber) || isContainsRequest(request, place);
     }
 
 }

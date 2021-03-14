@@ -55,6 +55,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         holder.teacherName.setText(event.getTeacherName());
         holder.description.setText(event.getDescription());
 
+        if(event.getEventType().equals(null)){
+            return;
+        }
+
         switch (event.getEventType()){
             case Event.LECTURE:
                 holder.timeLayout.setBackgroundResource(R.drawable.event_time_lecture_shape);

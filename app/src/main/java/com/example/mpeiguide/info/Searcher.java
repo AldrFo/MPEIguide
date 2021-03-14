@@ -21,27 +21,13 @@ public class Searcher implements SearcherInterface {
         request = request.toLowerCase();
         ArrayList<Contact> results = new ArrayList<>();
 
-        int j = 0;
-
         Log.d(MainActivity.MAIN_LOG,"Searcher: amount of words == "
                 + getAmountOfWords(request));
 
-        for( int i = 0; i < getAmountOfWords(request); ++i) {
-            StringBuilder singleWordRequest = new StringBuilder();
+        String[] singleWords = getSingleWords(request);
 
-            while(request.charAt(j) == ' ') {
-                ++j;
-            }
-
-            while (j != request.length() && request.charAt(j) != ' ') {
-                singleWordRequest.append(request.charAt(j));
-                ++j;
-            }
-
-            Log.d(MainActivity.MAIN_LOG,"Searcher: full singleWordRequest == "
-                     + singleWordRequest.toString());
-
-            checkAboutRequest(singleWordRequest.toString(), results);
+        for( int i = 0; i < singleWords.length; ++i) {
+            checkAboutRequest(singleWords[i], results);
         }
         return results;
     }
@@ -52,22 +38,56 @@ public class Searcher implements SearcherInterface {
     }
 
     @Override
-    public boolean isNotTooMuchMistakes(String request, String poleOfObject) {
-        double quantity = 0;
-        int length;
+    public boolean isContainsRequest(String request, String poleOfObject) {
+        String[] singleWords = getSingleWords(poleOfObject);
 
-        if(request.length() <= poleOfObject.length()) {
-            length = request.length();
-        }else{
-            length = poleOfObject.length();
-        }
+        for(int j = 0; j < singleWords.length;j++) {
+            if(singleWords[j].length() <= 3){
+                return false;
+            }
+            double quantity = 0;
+            int length;
 
-        for (int i = 0; i < length; i++) {
-            if(request.charAt(i) != poleOfObject.charAt(i)){
-                ++quantity;
+            if(request.length() <= singleWords[j].length()) {
+                length = request.length();
+            } else {
+                length = singleWords[j].length();
+            }
+
+            for (int i = 0; i < length; i++) {
+                if (request.charAt(i) != singleWords[j].charAt(i)) {
+                    ++quantity;
+                }
+            }
+            Log.d(MainActivity.MAIN_LOG,"Searcher: request - " + request + " single word - " + singleWords[j]);
+            Log.d(MainActivity.MAIN_LOG,"Searcher: percent of mistakes = " + quantity/request.length());
+
+            if(quantity / request.length() < 0.20 || poleOfObject.contains(request)){
+                return true;
             }
         }
-        return (quantity/request.length() < 0.20 );
+        return false;
+    }
+
+    private String[] getSingleWords(String s){
+        int amount = getAmountOfWords(s);
+        String[] singleWords = new String[amount];
+        int j = 0;
+        for(int i = 0; i < amount;i++) {
+            StringBuilder singleWordRequest = new StringBuilder();
+
+            while (s.charAt(j) == ' ') {
+                ++j;
+            }
+
+            while (j != s.length() && s.charAt(j) != ' ') {
+                singleWordRequest.append(s.charAt(j));
+                ++j;
+            }
+
+            singleWords[i] = singleWordRequest.toString();
+        }
+        return singleWords;
     }
 
     @Override
