@@ -13,7 +13,7 @@ public class Searcher implements SearcherInterface {
     @Override
     public ArrayList search(String request) {
 
-        if(request == null || request.length() == 0){
+        if(request == null || request.length() == 0) {
             Log.d(MainActivity.MAIN_LOG,"Searcher: request == null");
             return null;
         }
@@ -27,20 +27,20 @@ public class Searcher implements SearcherInterface {
         Log.d(MainActivity.MAIN_LOG,"Searcher: amount of words == "
                 + getAmountOfWords(request));
 
-        for(int i =0;i < getAmountOfWords(request);i++){
+        for( int i = 0; i < getAmountOfWords(request); ++i) {
             StringBuilder singleWordRequest = new StringBuilder();
 
-            while(request.charAt(j) == ' '){
-                j++;
+            while(request.charAt(j) == ' ') {
+                ++j;
             }
 
             while (j != request.length() && request.charAt(j) != ' ') {
                 singleWordRequest.append(request.charAt(j));
-                j++;
+                ++j;
             }
 
             Log.d(MainActivity.MAIN_LOG,"Searcher: full singleWordRequest == "
-                    + singleWordRequest.toString());
+                     + singleWordRequest.toString());
 
             checkAboutRequest(singleWordRequest.toString(), results);
         }
@@ -53,17 +53,34 @@ public class Searcher implements SearcherInterface {
     }
 
     @Override
+    public boolean NumberOfMatches(String request, String PoleOfObject) {
+        double Quantity = 0;
+        int LEN = 0;
+
+        if (request.length() <= PoleOfObject.length()) { LEN = request.length();}
+        else { LEN = PoleOfObject.length();}
+
+        for ( int i = 0; i < LEN; ++i) {
+            if( request.charAt(i) != PoleOfObject.charAt(i)) {
+                ++Quantity;
+            }
+        }
+        return (Quantity/request.length() < 0.30 ); // считает запрос верным при наличии в нём 30% ошибок
+    }
+
+    @Override
     public int getAmountOfWords(String request) {
 
         int count = 1;
         boolean flag = false;
 
-        for(int i = 0;i<request.length();i++){
+        for(int i = 0; i < request.length(); ++i) {
             if(request.charAt(i) == ' '){
                 flag = true;
             }
-            if(flag && request.charAt(i) != ' '){
-                count++;
+
+            if(flag && request.charAt(i) != ' ') {
+                ++count;
                 flag = false;
             }
         }
