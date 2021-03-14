@@ -67,7 +67,7 @@ public class Searcher implements SearcherInterface {
                 ++quantity;
             }
         }
-        return (quantity/request.length() < 0.30 ); // считает запрос верным при наличии в нём 30% ошибок
+        return (quantity/request.length() < 0.20 );
     }
 
     @Override
