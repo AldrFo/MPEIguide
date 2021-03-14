@@ -19,7 +19,6 @@ public class Event implements Serializable {
     public static final String PLACE = "place";
     public static final String DESCRIPTION = "description";
     public static final String EVENT_NAME = "event_name";
-    public static final String ID = "id";
     public static final String POSITION = "position";
 
     private String startTime;
@@ -30,7 +29,6 @@ public class Event implements Serializable {
     private String description;
     private String eventName;
 
-    private int id;
 
     public Event(String startTime, String endTime, String eventName, String eventType,
                  String place, String teacherName, String description){
@@ -42,7 +40,6 @@ public class Event implements Serializable {
         this.teacherName = teacherName;
         this.description = description;
 
-        id = description.hashCode() + place.hashCode();
     }
 
     public int getStartTimeInMinutes(){
@@ -67,10 +64,6 @@ public class Event implements Serializable {
 
         return minutes;
 
-    }
-
-    public int getId(){
-        return id;
     }
 
     public String getStartTime() {
