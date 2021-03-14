@@ -16,7 +16,7 @@ public class SitesSearcher extends Searcher {
     @Override
     public boolean isPassSearchCondition(String request, Object whereSearch) {
         Site site = (Site) whereSearch;
-        return site.getName().toLowerCase().contains(request);
+        return NumberOfMatches(request, site.getName().toLowerCase());
     }
 
     @Override

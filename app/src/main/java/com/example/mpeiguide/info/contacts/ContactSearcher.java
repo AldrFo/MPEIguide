@@ -11,14 +11,14 @@ public class ContactSearcher extends Searcher {
 
     ArrayList<Contact> contacts;
 
-    public ContactSearcher(ArrayList<Contact> contacts){
+    public ContactSearcher(ArrayList<Contact> contacts) {
         this.contacts = contacts;
     }
 
     @Override
-    public void checkAboutRequest(String request, ArrayList results){
+    public void checkAboutRequest(String request, ArrayList results) {
         for (Contact contact: contacts) {
-            if(isPassSearchCondition(request,contact) && !results.contains(contact)){
+            if (isPassSearchCondition(request,contact) && !results.contains(contact)) {
                 results.add(contact);
                 Log.d(MainActivity.MAIN_LOG,"ContactSearcher: finded " + contact.getName());
             }
@@ -28,12 +28,19 @@ public class ContactSearcher extends Searcher {
     @Override
     public boolean isPassSearchCondition(String request, Object whereSearch) {
         Contact contact = (Contact) whereSearch;
+
         String name = contact.getName().toLowerCase();
+
         String workPos = contact.getWorkPosition().toLowerCase();
+
         String phoneNumber = contact.getPhoneNumber().toLowerCase();
+
         String desc = contact.getDescription().toLowerCase();
+
         String place = contact.getPlace().toLowerCase();
-        return name.contains(request) || workPos.contains(request) ||
-                phoneNumber.contains(request) || desc.contains(request) || place.contains(request);
+
+        return NumberOfMatches(request, name) || NumberOfMatches(request, workPos) ||
+                NumberOfMatches(request, phoneNumber) || NumberOfMatches(request, desc) || NumberOfMatches(request, place);
     }
+
 }
