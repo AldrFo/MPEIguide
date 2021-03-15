@@ -29,7 +29,9 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7sp"
+        android:layout_marginEnd="7sp">
 
         <TableRow
             android:layout_width="match_parent"
@@ -45,8 +47,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                />
+                android:inputType="time" />
+
 
         </TableRow>
 
@@ -64,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="time"
                 />
 
         </TableRow>
@@ -150,7 +152,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/description" />
+                android:text="Заметка" />
 
             <EditText
                 android:id="@+id/event_description_edit_text"
@@ -168,6 +170,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/ok"
+        android:layout_marginTop="35sp"
         style="@style/RoundedCornerButton"/>
 
     <Button

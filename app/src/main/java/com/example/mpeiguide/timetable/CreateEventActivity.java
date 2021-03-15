@@ -107,13 +107,23 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         Intent data = new Intent();
-        data.putExtra(Event.START_TIME,startTimeEdit.getText().toString());
-        data.putExtra(Event.END_TIME,endTimeEdit.getText().toString());
-        data.putExtra(Event.EVENT_NAME,editName.getText().toString());
-        data.putExtra(Event.EVENT_TYPE,editType.getText().toString());
-        data.putExtra(Event.PLACE,editPlace.getText().toString());
-        data.putExtra(Event.TEACHER_NAME,editTeacherName.getText().toString());
-        data.putExtra(Event.DESCRIPTION,editDescription.getText().toString());
+        String startTime = startTimeEdit.getText().toString();
+        String endTime = endTimeEdit.getText().toString();
+        String name = editName.getText().toString();
+        String type = editType.getText().toString();
+        String place = editPlace.getText().toString();
+        String teacherName = editTeacherName.getText().toString();
+        String desc = editDescription.getText().toString();
+
+
+
+        data.putExtra(Event.START_TIME,startTime);
+        data.putExtra(Event.END_TIME,endTime);
+        data.putExtra(Event.EVENT_NAME,name);
+        data.putExtra(Event.EVENT_TYPE,type);
+        data.putExtra(Event.PLACE,place);
+        data.putExtra(Event.TEACHER_NAME,teacherName);
+        data.putExtra(Event.DESCRIPTION,desc);
         data.putExtra(PageFragment.ARG_PAGE_NUMBER,
                 getIntent().getIntExtra(PageFragment.ARG_PAGE_NUMBER,0));
         setResult(CREATE_CODE,data);

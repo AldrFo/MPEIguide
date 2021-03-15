@@ -47,6 +47,16 @@
         <item name="android:paddingTop">2sp</item>
         <item name="android:paddingBottom">2sp</item>
     </style>
+
+    <style name="SettingStyle">
+        <item name="android:paddingTop">5sp</item>
+        <item name="android:paddingBottom">5sp</item>
+    </style>
+
+    <style name="SettingTextStyle">
+        <item name="android:textSize">17sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
     
     <style name="EventText">
         <item name="android:layout_marginStart">10sp</item>
