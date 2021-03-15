@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/event_main_color"/>
+            <solid android:color="@color/event_main_background_color"/>
             <corners android:topRightRadius="10sp"/>
         </shape>
     </item>
@@ -10,8 +10,8 @@
         <shape android:shape="rectangle">
             <gradient
                 android:angle="0"
-                android:startColor="@color/event_sec_color"
-                android:endColor="@color/event_main_color"
+                android:startColor="@color/event_desc_color"
+                android:endColor="@color/event_main_background_color"
                 />
         </shape>
     </item>

@@ -4,6 +4,11 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="7sp"
     android:layout_marginBottom="7sp"
+    android:layout_marginStart="5sp"
+    android:layout_marginEnd="5sp"
+    android:background="@drawable/button_shape"
+    android:elevation="4sp"
+    android:translationZ="1sp"
     android:orientation="vertical">
 
     <TextView
@@ -11,8 +16,6 @@
         android:background="@drawable/question_short_quest_shape"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5sp"
-        android:layout_marginEnd="5sp"
         android:paddingStart="7sp"
         android:paddingEnd="7sp"
         android:paddingBottom="4sp"
@@ -26,8 +29,6 @@
         android:background="@drawable/question_short_desc_shape"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5sp"
-        android:layout_marginEnd="5sp"
         android:paddingStart="7sp"
         android:paddingEnd="7sp"
         android:paddingBottom="4sp"

@@ -28,6 +28,8 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_marginStart">7sp</item>
         <item name="android:layout_marginEnd">7sp</item>
+        <item name="android:paddingStart">5sp</item>
+        <item name="android:paddingEnd">5sp</item>
     </style>
 
     <style name="FatText">
@@ -46,6 +48,8 @@
         <item name="android:paddingEnd">5sp</item>
         <item name="android:paddingTop">2sp</item>
         <item name="android:paddingBottom">2sp</item>
+        <item name="android:elevation">2sp</item>
+        <item name="android:translationZ">0sp</item>
     </style>
 
     <style name="SettingStyle">
@@ -56,10 +60,30 @@
     <style name="SettingTextStyle">
         <item name="android:textSize">17sp</item>
         <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">5sp</item>
+        <item name="android:paddingEnd">5sp</item>
     </style>
-    
+
+    <style name="CreateActivityTextStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="EventText">
         <item name="android:layout_marginStart">10sp</item>
+    </style>
+
+    <style name="EventEditTextStyle">
+        <item name="android:background">@drawable/edit_event_edit_text_shape</item>
+        <item name="android:layout_marginStart">7sp</item>
+        <item name="android:layout_marginEnd">7sp</item>
+        <item name="android:paddingStart">4sp</item>
+        <item name="android:paddingEnd">4sp</item>
+        <item name="android:paddingTop">4sp</item>
+        <item name="android:paddingBottom">4sp</item>
+        <item name="android:hint">...</item>
+        <item name="android:elevation">2sp</item>
+        <item name="android:translationZ">0sp</item>
     </style>
 
 </resources>

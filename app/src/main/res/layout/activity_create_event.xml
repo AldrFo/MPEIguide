@@ -10,14 +10,16 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="10sp">
 
         <ImageButton
             android:id="@+id/create_event_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/BackButton"
-            app:srcCompat="@drawable/abc_vector_test" />
+            android:src="?attr/actionModeCloseDrawable" />
 
         <TextView
             android:id="@+id/create_event_title"
@@ -35,11 +37,14 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/CreateActivityTextStyle"
                 android:text="@string/event_start_time" />
 
             <EditText
@@ -47,18 +52,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="time" />
+                android:inputType="time"
+                style="@style/EventEditTextStyle"/>
 
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/CreateActivityTextStyle"
                 android:text="@string/event_end_time" />
 
             <EditText
@@ -67,17 +76,21 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="time"
+                style="@style/EventEditTextStyle"
                 />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/CreateActivityTextStyle"
                 android:text="@string/name_of_event" />
 
             <EditText
@@ -86,17 +99,21 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
+                style="@style/EventEditTextStyle"
                  />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/CreateActivityTextStyle"
                 android:text="@string/event_type" />
 
             <EditText
@@ -104,16 +121,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                style="@style/EventEditTextStyle"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/CreateActivityTextStyle"
                 android:text="@string/event_place" />
 
             <EditText
@@ -122,17 +143,21 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
+                style="@style/EventEditTextStyle"
                  />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/CreateActivityTextStyle"
                 android:text="@string/teacher_name" />
 
             <EditText
@@ -141,18 +166,22 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
+                style="@style/EventEditTextStyle"
                  />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Заметка" />
+                style="@style/CreateActivityTextStyle"
+                android:text="@string/note" />
 
             <EditText
                 android:id="@+id/event_description_edit_text"
@@ -160,6 +189,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
+                style="@style/EventEditTextStyle"
                  />
 
         </TableRow>
@@ -171,6 +201,7 @@
         android:layout_height="wrap_content"
         android:text="@string/ok"
         android:layout_marginTop="35sp"
+        android:layout_marginBottom="15sp"
         style="@style/RoundedCornerButton"/>
 
     <Button

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/main_background_color"
     tools:context=".MainActivity" >
 
     <FrameLayout
@@ -18,10 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/bottomMenuColor"
+        android:background="@color/bottom_menu_color"
         app:menu="@menu/bottom_menu"
-        app:itemIconTint="@color/iconColor"
-        app:itemTextColor="@color/iconColor"
+        app:itemIconTint="@drawable/bottom_nav_view_color"
         app:itemIconSize="30dp"
         />
 </LinearLayout>

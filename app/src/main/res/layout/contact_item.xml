@@ -8,6 +8,9 @@
     android:layout_marginStart="7sp"
     android:layout_marginTop="7sp"
     android:layout_marginBottom="7sp"
+    android:background="@drawable/button_shape"
+    android:elevation="4sp"
+    android:translationZ="1sp"
     android:orientation="vertical">
 
 

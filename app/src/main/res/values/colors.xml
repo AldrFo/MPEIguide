@@ -8,12 +8,24 @@
     <color name="event_main_color">#EAEAEA</color>
     <color name="event_sec_color">#B1B1B1</color>
 
-    <color name="event_lecture_color">#B50000</color>
-    <color name="event_sem_color">#0033B5</color>
-    <color name="event_lab_color">#FFDD00</color>
-    <color name="event_user_color">#30B500</color>
+    <color name="event_lecture_color">#FB296A</color>
+    <color name="event_sem_color">#5E88CC</color>
+    <color name="event_lab_color">#FACF07</color>
+    <color name="event_user_color">#62DB36</color>
 
-    <color name="buttons_color">#B1B1B1</color>
+    <color name="buttons_color">#FFFFFF</color>
 
     <color name="search_edit_text_color">#DCDCDC</color>
+
+    <color name="main_background_color">#F7F7F7</color>
+    <color name="event_main_background_color">#FFFFFF</color>
+    <color name="bottom_menu_color">#FFFFFF</color>
+    <color name="event_desc_color">#F7F7F7</color>
+    <color name="icon_color">#777777</color>
+    <color name="icon_checked_color">#434343</color>
+
+    <color name="bold_text_color">#3e3e3e</color>
+    <color name="common_text_color">#777777</color>
+    <color name="float_action_button_color">#FFFFFF</color>
+
 </resources>

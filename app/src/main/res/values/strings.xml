@@ -52,6 +52,7 @@
     <string name="show_teacher_name">Отображение преподавателя</string>
     <string name="show_pair_type">Отображение типа пары</string>
     <string name="show_description">Отображение заметок</string>
+    <string name="note">Заметка</string>
     <string name="change_user">Изменить пользователя</string>
     <string name="notification_about_rating">Уведомления о новых оценках</string>
 
