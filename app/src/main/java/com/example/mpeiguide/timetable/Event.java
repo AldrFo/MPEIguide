@@ -51,23 +51,31 @@ public class Event implements Serializable {
             return 0;
         }
         int minutes;
-        char[] time = startTime.toCharArray();
+        int[] timeNums = getIntTimeFromString(startTime);
+        minutes = timeNums[0]*60;
+        Log.d(MainActivity.MAIN_LOG,"Event: hours in minutes == " + minutes);
+        minutes += timeNums[1];
+
+        return minutes;
+
+    }
+
+    private static int[] getIntTimeFromString(String s){
+        int[] timeNumbers = new int[2];
+        char[] time = s.toCharArray();
         StringBuilder sb = new StringBuilder();
         int i = 0;
         while (time[i] != ':'){
             sb.append(time[i]);
             i++;
         }
-        minutes = Integer.parseInt(sb.toString())*60;
-        Log.d(MainActivity.MAIN_LOG,"Event: hours in minutes == " + minutes);
+        timeNumbers[0] = Integer.parseInt(sb.toString());
         sb = new StringBuilder();
         for(int j = i+1; j < time.length;j++){
             sb.append(time[j]);
         }
-        minutes += Integer.parseInt(sb.toString());
-
-        return minutes;
-
+        timeNumbers[1] = Integer.parseInt(sb.toString());
+        return timeNumbers;
     }
 
     public static void sortEventsByTime(ArrayList<Event> timetable){
@@ -80,6 +88,21 @@ public class Event implements Serializable {
                 }
             }
         }
+    }
+
+    public static boolean isTimeCorrect(String time){
+        boolean isDivided = false;
+
+        for(int i = 0;i<time.length();i++){
+            char c = time.charAt(i);
+            if(c == ':' && !isDivided){
+                isDivided = true;
+            }else if(c == ':' && isDivided){
+                return false;
+            }
+        }
+        int[] timeNums = getIntTimeFromString(time);
+        return (isDivided && timeNums[0]<24 && timeNums[1]<60);
     }
 
     public String getStartTime() {

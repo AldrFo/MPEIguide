@@ -136,6 +136,11 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
             return;
         }
 
+        if(!Event.isTimeCorrect(startTime) || !Event.isTimeCorrect(endTime)){
+            Toast.makeText(this,"Время введено некорректно!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         data.putExtra(Event.START_TIME,startTime);
         data.putExtra(Event.END_TIME,endTime);
         data.putExtra(Event.EVENT_NAME,name);
