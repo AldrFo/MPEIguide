@@ -40,31 +40,49 @@
             android:id="@+id/org_details_avatar"
             android:layout_width="180sp"
             android:layout_height="200sp"
+            android:layout_marginStart="7sp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/avatar" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="7sp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/vk_group" />
 
             <TextView
                 android:id="@+id/org_details_vk_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/vk_group" />
+                android:textColor="@color/link_color"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/president" />
 
             <TextView
                 android:id="@+id/org_details_president"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/president" />
+                android:textStyle="bold"
+                android:text="@string/place" />
 
             <TextView
                 android:id="@+id/org_details_place"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/place" />
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </LinearLayout>
@@ -73,5 +91,6 @@
         android:id="@+id/org_details_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="17sp"
         android:text="TextView" />
 </LinearLayout>

@@ -62,7 +62,6 @@ public class OrganizationsFragment extends Fragment implements TextWatcher {
         listener = new OrganizationAdapter.OnOrganizationClickListener() {
             @Override
             public void onOrganizationClick(Organization org, int position) {
-                Toast.makeText(getContext(),"пока не работает",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getContext(),OrganizationDetailsActivity.class);
                 intent.putExtra(Organization.NAME,org.getOrgName());
                 intent.putExtra(Organization.VK_NAME,org.getVkName());

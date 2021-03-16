@@ -28,4 +28,6 @@
     <color name="common_text_color">#777777</color>
     <color name="float_action_button_color">#FFFFFF</color>
 
+    <color name="link_color">#2196F3</color>
+
 </resources>
