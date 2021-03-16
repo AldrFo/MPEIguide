@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
         <activity android:name=".settings.ChangeGroupActivity"></activity>
         <activity android:name=".info.organizations.OrganizationDetailsActivity" />
         <activity android:name=".info.faq.QuestionDetailsActivity" />

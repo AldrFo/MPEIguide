@@ -78,7 +78,7 @@ public class InfoFragment extends Fragment implements View.OnClickListener{
                 loadFragment(FaqFragment.newInstance());
                 break;
             case R.id.da_ya_psih_button:
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:1234567"));
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+7 495 362-74-71"));
                 startActivity(intent);
                 break;
         }
