@@ -40,12 +40,13 @@
             android:layout_width="150dp"
             android:layout_height="160dp"
             android:scaleType="fitXY"
+            android:layout_marginStart="7sp"
+            android:layout_marginEnd="7sp"
             android:background="@drawable/avatar" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7sp"
             android:layout_marginStart="5sp"
             android:orientation="vertical">
 
@@ -108,5 +109,7 @@
         android:id="@+id/contact_description_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:layout_marginTop="8sp"
         android:text="TextView" />
 </LinearLayout>
