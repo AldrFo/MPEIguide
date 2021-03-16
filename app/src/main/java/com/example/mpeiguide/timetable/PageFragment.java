@@ -99,8 +99,9 @@ public class PageFragment extends Fragment {
                 String eventType = data.getStringExtra(Event.EVENT_TYPE);
                 String place = data.getStringExtra(Event.PLACE);
                 String description = data.getStringExtra(Event.DESCRIPTION);
+                boolean editable = data.getBooleanExtra(Event.EDITABLE,true);
 
-                Event event = new Event(startTime, endTime, name, eventType, place, teacherName, description,true);
+                Event event = new Event(startTime, endTime, name, eventType, place, teacherName, description,editable);
                 timetable.set(requestCode, event);
 
                 Event.sortEventsByTime(timetable);

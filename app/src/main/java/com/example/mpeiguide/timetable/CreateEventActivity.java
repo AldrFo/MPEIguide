@@ -42,6 +42,8 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
     private Button deleteButton;
     private ImageButton backButton;
 
+    private boolean eventEditable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,8 +76,9 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
 
         try {
             final Intent intent = getIntent();
+            eventEditable = intent.getBooleanExtra(Event.EDITABLE,true);
             Log.d(MainActivity.MAIN_LOG,"CreateEventActivity: is editable - " + intent.getBooleanExtra(Event.EDITABLE,true));
-            if(!intent.getBooleanExtra(Event.EDITABLE,true)){
+            if(!eventEditable){
                 startTimeEdit.setEnabled(false);
                 endTimeEdit.setEnabled(false);
                 editName.setEnabled(false);
@@ -151,7 +154,7 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
         data.putExtra(Event.DESCRIPTION,desc);
         data.putExtra(PageFragment.ARG_PAGE_NUMBER,
                 getIntent().getIntExtra(PageFragment.ARG_PAGE_NUMBER,0));
-        data.putExtra(Event.EDITABLE,getIntent().getBooleanExtra(Event.EDITABLE,true));
+        data.putExtra(Event.EDITABLE,eventEditable);
         setResult(CREATE_CODE,data);
         finish();
     }
