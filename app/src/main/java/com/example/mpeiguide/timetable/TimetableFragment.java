@@ -98,24 +98,11 @@ public class TimetableFragment extends Fragment {
 
         weekTimetable[pageNum].addToTimetable(event);
 
-        sortEventsByTime(weekTimetable[pageNum]);
+        Event.sortEventsByTime(weekTimetable[pageNum].getTimetable());
 
         fpa = new MyFragmentPagerAdapter(getFragmentManager(),getContext(),weekTimetable);
         vp.setAdapter(fpa);
         vp.setCurrentItem(pageNum);
-    }
-
-    private void sortEventsByTime(Timetable t){
-        ArrayList<Event> timetable = t.getTimetable();
-        for(int i = 0;i < timetable.size();i++){
-            for(int j = 1; j < timetable.size();j++){
-                if(timetable.get(j-1).getStartTimeInMinutes() > timetable.get(j).getStartTimeInMinutes()){
-                    Event e = timetable.get(j-1);
-                    timetable.set(j-1,timetable.get(j));
-                    timetable.set(j,e);
-                }
-            }
-        }
     }
 
     @Override

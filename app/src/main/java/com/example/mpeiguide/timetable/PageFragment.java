@@ -102,6 +102,8 @@ public class PageFragment extends Fragment {
                 Event event = new Event(startTime, endTime, name, eventType, place, teacherName, description);
                 timetable.set(requestCode, event);
 
+                Event.sortEventsByTime(timetable);
+
                 adapter = new EventAdapter(getContext(), timetable, eventClickListener);
                 recyclerView.setAdapter(adapter);
                 break;

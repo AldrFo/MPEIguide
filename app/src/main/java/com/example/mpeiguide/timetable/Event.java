@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.mpeiguide.MainActivity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Event implements Serializable {
 
@@ -64,6 +65,18 @@ public class Event implements Serializable {
 
         return minutes;
 
+    }
+
+    public static void sortEventsByTime(ArrayList<Event> timetable){
+        for(int i = 0;i < timetable.size();i++){
+            for(int j = 1; j < timetable.size();j++){
+                if(timetable.get(j-1).getStartTimeInMinutes() > timetable.get(j).getStartTimeInMinutes()){
+                    Event e = timetable.get(j-1);
+                    timetable.set(j-1,timetable.get(j));
+                    timetable.set(j,e);
+                }
+            }
+        }
     }
 
     public String getStartTime() {
