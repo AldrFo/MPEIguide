@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mpeiguide.MainActivity;
 import com.example.mpeiguide.R;
@@ -73,6 +74,15 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
 
         try {
             final Intent intent = getIntent();
+            Log.d(MainActivity.MAIN_LOG,"CreateEventActivity: is editable - " + intent.getBooleanExtra(Event.EDITABLE,true));
+            if(!intent.getBooleanExtra(Event.EDITABLE,true)){
+                startTimeEdit.setEnabled(false);
+                endTimeEdit.setEnabled(false);
+                editName.setEnabled(false);
+                editType.setEnabled(false);
+                editPlace.setEnabled(false);
+                editTeacherName.setEnabled(false);
+            }
             title.setText(intent.getStringExtra(TITLE));
             startTimeEdit.setText(intent.getStringExtra(Event.START_TIME));
             endTimeEdit.setText(intent.getStringExtra(Event.END_TIME));
@@ -99,9 +109,7 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
                 layout.removeView(deleteButton);
                 Log.d(MainActivity.MAIN_LOG, "CreateEventActivity: remove delete button");
             }
-        }catch (Exception e){
-
-        }
+        }catch (Exception e){ }
     }
 
     @Override
@@ -115,7 +123,23 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
         String teacherName = editTeacherName.getText().toString();
         String desc = editDescription.getText().toString();
 
+        if(startTime.equals("")){
+            Toast.makeText(this,"Введите время начала!", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(endTime.equals("")){
+            Toast.makeText(this,"Введите время окончания!", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(name.equals("")){
+            Toast.makeText(this,"Введите название события!", Toast.LENGTH_LONG).show();
+            return;
+        }
 
+        if(!Event.isTimeCorrect(startTime) || !Event.isTimeCorrect(endTime)){
+            Toast.makeText(this,"Время введено некорректно!", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         data.putExtra(Event.START_TIME,startTime);
         data.putExtra(Event.END_TIME,endTime);
@@ -126,6 +150,7 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
         data.putExtra(Event.DESCRIPTION,desc);
         data.putExtra(PageFragment.ARG_PAGE_NUMBER,
                 getIntent().getIntExtra(PageFragment.ARG_PAGE_NUMBER,0));
+        data.putExtra(Event.EDITABLE,getIntent().getBooleanExtra(Event.EDITABLE,true));
         setResult(CREATE_CODE,data);
         finish();
     }

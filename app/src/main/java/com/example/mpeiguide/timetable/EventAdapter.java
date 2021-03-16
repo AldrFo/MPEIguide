@@ -77,6 +77,15 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
             }
         });
 
+        if(holder.eventType.getText().toString().equals("")){
+            holder.infoLayout.removeView(holder.eventType);
+        }
+        if(holder.place.getText().toString().equals("")){
+            holder.infoLayout.removeView(holder.place);
+        }
+        if(holder.teacherName.getText().toString().equals("")){
+            holder.infoLayout.removeView(holder.teacherName);
+        }
         if(!settings.getBoolean(SettingsFragment.SHOW_TEACHER,true)){
             holder.infoLayout.removeView(holder.teacherName);
         }
