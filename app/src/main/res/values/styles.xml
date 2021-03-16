@@ -65,7 +65,7 @@
     </style>
 
     <style name="CreateActivityTextStyle">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">13sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -81,6 +81,8 @@
         <item name="android:paddingEnd">4sp</item>
         <item name="android:paddingTop">4sp</item>
         <item name="android:paddingBottom">4sp</item>
+        <item name="android:layout_marginTop">4sp</item>
+        <item name="android:layout_marginBottom">4sp</item>
         <item name="android:hint">...</item>
         <item name="android:elevation">2sp</item>
         <item name="android:translationZ">0sp</item>
