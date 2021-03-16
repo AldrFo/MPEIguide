@@ -82,6 +82,7 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
                 editType.setEnabled(false);
                 editPlace.setEnabled(false);
                 editTeacherName.setEnabled(false);
+                deleteButton.setEnabled(false);
             }
             title.setText(intent.getStringExtra(TITLE));
             startTimeEdit.setText(intent.getStringExtra(Event.START_TIME));

@@ -25,12 +25,16 @@ public class MyFragmentPagerAdapter extends FragmentStatePagerAdapter {
         super(fm);
         this.context = context;
         this.weekTimetable = weekTimetable;
+        Log.d(MainActivity.MAIN_LOG,"FragmentAdapter: is null context - " + (context == null));
+        Log.d(MainActivity.MAIN_LOG,"FragmentAdapter: is null timetable - " + (weekTimetable == null));
+        Log.d(MainActivity.MAIN_LOG,"FragmentAdapter: is null fm - " + (fm == null));
     }
 
     @Override
     public Fragment getItem(int position){
         Log.d(MainActivity.MAIN_LOG,"=======================");
         Log.d(MainActivity.MAIN_LOG,"FragmentAdapter: getItem");
+        Log.d(MainActivity.MAIN_LOG,"FragmentPager: position = " + position);
         return PageFragment.newInstance(position,weekTimetable[position].getTimetable());
     }
 

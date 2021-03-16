@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.mpeiguide.MainActivity;
 import com.example.mpeiguide.R;
@@ -28,8 +29,13 @@ public class TimetableFragment extends Fragment {
     private MyFragmentPagerAdapter fpa;
     private TabLayout tabs;
     private FloatingActionButton fab;
+    private FloatingActionButton nextWeekButton;
+    private TextView weekNum;
 
-    private Timetable[] weekTimetable = new Timetable[7];
+    private boolean even;
+
+    private Timetable[] weekTimetableNotEven = new Timetable[7];
+    private Timetable[] weekTimetableEven = new Timetable[7];
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -49,18 +55,12 @@ public class TimetableFragment extends Fragment {
         Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onCreateView===");
         View v = inflater.inflate(R.layout.fragment_timetable, container, false);
 
-        try{
-            weekTimetable = (Timetable[]) SaveLoad.load(getContext(),"timetable.tmt");
-        }catch (Exception e) {
-            Log.d(MainActivity.MAIN_LOG,"LOAD EXCEPTION");
-            for (int i = 0; i < weekTimetable.length; i++) {
-                weekTimetable[i] = new Timetable(i);
-            }
-        }
-
+        weekNum = v.findViewById(R.id.timetable_week_num);
         vp = v.findViewById(R.id.viewpager);
-        fpa = new MyFragmentPagerAdapter(getFragmentManager(),getContext(),weekTimetable);
-        vp.setAdapter(fpa);
+
+        even = false;
+        initTimetables();
+        loadTimetable();
 
         tabs = v.findViewById(R.id.tabs);
         tabs.setupWithViewPager(vp);
@@ -76,7 +76,52 @@ public class TimetableFragment extends Fragment {
             }
         });
 
+        nextWeekButton = v.findViewById(R.id.next_week_button);
+        nextWeekButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(even) {
+                    even = false;
+                }else{
+                    even = true;
+                }
+                loadTimetable();
+            }
+        });
+
         return v;
+    }
+
+    private void loadTimetable(){
+        if (even) {
+            weekNum.setText("Четная неделя");
+            fpa = new MyFragmentPagerAdapter(getFragmentManager(), getContext(), weekTimetableEven);
+        }else{
+            weekNum.setText("Нечетная неделя");
+            fpa = new MyFragmentPagerAdapter(getFragmentManager(), getContext(), weekTimetableNotEven);
+        }
+        vp.setAdapter(fpa);
+    }
+
+    private void initTimetables(){
+        try {
+            weekTimetableEven = (Timetable[]) SaveLoad.load(getContext(), "timetableEven.tmt");
+            Log.d(MainActivity.MAIN_LOG,"TimetableFragment: is timetable even " + even);
+        } catch (Exception e) {
+            Log.d(MainActivity.MAIN_LOG, "LOAD EXCEPTION");
+            for (int i = 0; i < weekTimetableEven.length; i++) {
+                weekTimetableEven[i] = new Timetable(i, even);
+            }
+        }
+        try {
+            weekTimetableNotEven = (Timetable[]) SaveLoad.load(getContext(), "timetableNotEven.tmt");
+        } catch (Exception e) {
+            Log.d(MainActivity.MAIN_LOG, "LOAD EXCEPTION");
+
+            for (int i = 0; i < weekTimetableNotEven.length; i++) {
+                weekTimetableNotEven[i] = new Timetable(i,even);
+            }
+        }
     }
 
     @Override
@@ -96,12 +141,16 @@ public class TimetableFragment extends Fragment {
 
         Event event = new Event(startTime,endTime,name,eventType,place,teacherName,description,editable);
         int pageNum = data.getIntExtra(PageFragment.ARG_PAGE_NUMBER,0);
+        if(even) {
+            weekTimetableEven[pageNum].addToTimetable(event);
+            Event.sortEventsByTime(weekTimetableEven[pageNum].getTimetable());
+            fpa = new MyFragmentPagerAdapter(getFragmentManager(),getContext(),weekTimetableEven);
+        }else{
+            weekTimetableNotEven[pageNum].addToTimetable(event);
+            Event.sortEventsByTime(weekTimetableNotEven[pageNum].getTimetable());
+            fpa = new MyFragmentPagerAdapter(getFragmentManager(),getContext(),weekTimetableNotEven);
+        }
 
-        weekTimetable[pageNum].addToTimetable(event);
-
-        Event.sortEventsByTime(weekTimetable[pageNum].getTimetable());
-
-        fpa = new MyFragmentPagerAdapter(getFragmentManager(),getContext(),weekTimetable);
         vp.setAdapter(fpa);
         vp.setCurrentItem(pageNum);
     }
@@ -123,7 +172,8 @@ public class TimetableFragment extends Fragment {
         super.onPause();
         Log.d(MainActivity.MAIN_LOG,"TimetableFragment: ====onPause()====");
         try {
-            SaveLoad.save(getContext(),"timetable.tmt",weekTimetable);
+            SaveLoad.save(getContext(), "timetableEven.tmt", weekTimetableEven);
+            SaveLoad.save(getContext(), "timetableNotEven.tmt", weekTimetableNotEven);
         }catch (Exception e){
             Log.d(MainActivity.MAIN_LOG,"SAVE EXCEPTION");
         }
