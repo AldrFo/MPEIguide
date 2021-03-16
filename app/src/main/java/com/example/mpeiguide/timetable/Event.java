@@ -21,6 +21,7 @@ public class Event implements Serializable {
     public static final String DESCRIPTION = "description";
     public static final String EVENT_NAME = "event_name";
     public static final String POSITION = "position";
+    public static final String EDITABLE = "editable";
 
     private String startTime;
     private String endTime;
@@ -30,9 +31,11 @@ public class Event implements Serializable {
     private String description;
     private String eventName;
 
+    private boolean editable;
+
 
     public Event(String startTime, String endTime, String eventName, String eventType,
-                 String place, String teacherName, String description){
+                 String place, String teacherName, String description, boolean editable){
         this.startTime = startTime;
         this.endTime = endTime;
         this.eventName = eventName;
@@ -40,7 +43,7 @@ public class Event implements Serializable {
         this.place = place;
         this.teacherName = teacherName;
         this.description = description;
-
+        this.editable = editable;
     }
 
     public int getStartTimeInMinutes(){
@@ -133,5 +136,9 @@ public class Event implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isEditable() {
+        return editable;
     }
 }

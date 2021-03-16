@@ -67,6 +67,7 @@ public class PageFragment extends Fragment {
                 intent.putExtra(Event.EVENT_TYPE,e.getEventType());
                 intent.putExtra(Event.PLACE,e.getPlace());
                 intent.putExtra(Event.POSITION, position);
+                intent.putExtra(Event.EDITABLE, e.isEditable());
                 startActivityForResult(intent,position);
             }
         };
@@ -99,7 +100,7 @@ public class PageFragment extends Fragment {
                 String place = data.getStringExtra(Event.PLACE);
                 String description = data.getStringExtra(Event.DESCRIPTION);
 
-                Event event = new Event(startTime, endTime, name, eventType, place, teacherName, description);
+                Event event = new Event(startTime, endTime, name, eventType, place, teacherName, description,true);
                 timetable.set(requestCode, event);
 
                 Event.sortEventsByTime(timetable);

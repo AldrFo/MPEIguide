@@ -92,8 +92,9 @@ public class TimetableFragment extends Fragment {
         String eventType = data.getStringExtra(Event.EVENT_TYPE);
         String place = data.getStringExtra(Event.PLACE);
         String description = data.getStringExtra(Event.DESCRIPTION);
+        boolean editable = data.getBooleanExtra(Event.EDITABLE,true);
 
-        Event event = new Event(startTime,endTime,name,eventType,place,teacherName,description);
+        Event event = new Event(startTime,endTime,name,eventType,place,teacherName,description,editable);
         int pageNum = data.getIntExtra(PageFragment.ARG_PAGE_NUMBER,0);
 
         weekTimetable[pageNum].addToTimetable(event);
