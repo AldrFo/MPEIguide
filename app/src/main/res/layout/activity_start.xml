@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:foregroundGravity="bottom"
-        android:layout_marginTop="27sp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -49,9 +49,10 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="27sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foregroundGravity="bottom"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
