@@ -63,7 +63,7 @@
         app:elevation="4sp"
         android:translationZ="1sp"
         android:clickable="true"
-        android:src="@android:drawable/ic_input_add"
+        android:src="@drawable/ic_plus"
         app:backgroundTint="@color/float_action_button_color"/>
 
 

@@ -106,8 +106,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 settings.edit().putBoolean(SHOW_PAIR_TYPE,b).apply();
                 Log.d(MainActivity.MAIN_LOG,"SettingFragment: show pair type - " + b);
                 break;
-            case R.id.desc_switch:
-                break;
         }
     }
 }

@@ -138,27 +138,6 @@
                 android:layout_height="wrap_content"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
         </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            style="@style/SettingStyle"
-            android:layout_marginStart="3sp"
-            android:layout_marginEnd="3sp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                style="@style/SettingTextStyle"
-                android:text="@string/show_description" />
-
-            <Switch
-                android:id="@+id/desc_switch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="UseSwitchCompatOrMaterialXml" />
-        </TableRow>
     </LinearLayout>
 
     <TextView
