@@ -62,7 +62,7 @@ public class Searcher implements SearcherInterface {
             Log.d(MainActivity.MAIN_LOG,"Searcher: request - " + request + " single word - " + singleWords[j]);
             Log.d(MainActivity.MAIN_LOG,"Searcher: percent of mistakes = " + quantity/request.length());
 
-            if(quantity / request.length() < 0.20 || poleOfObject.contains(request)){
+            if(quantity / request.length() < 0.25 || poleOfObject.contains(request)){
                 return true;
             }
         }
@@ -76,7 +76,7 @@ public class Searcher implements SearcherInterface {
         for(int i = 0; i < amount;i++) {
             StringBuilder singleWordRequest = new StringBuilder();
 
-            while (s.charAt(j) == ' ') {
+            while (j<s.length() && s.charAt(j) == ' ') {
                 ++j;
             }
 

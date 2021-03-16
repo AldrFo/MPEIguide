@@ -21,7 +21,7 @@ public class OrganizationAdapter extends RecyclerView.Adapter<OrganizationAdapte
         void onOrganizationClick(Organization org, int position);
     }
 
-    public static final int MAX_DESC_LENGTH = 200;
+    public static final int MAX_DESC_LENGTH = 130;
 
     private LayoutInflater inflater;
     private List<Organization> organizations;
