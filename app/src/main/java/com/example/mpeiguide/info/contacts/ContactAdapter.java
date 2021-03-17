@@ -1,5 +1,6 @@
 package com.example.mpeiguide.info.contacts;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mpeiguide.MainActivity;
 import com.example.mpeiguide.R;
 
 import java.util.List;
@@ -44,7 +46,11 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         final Contact contact = contacts.get(position);
 
         if(contact.getImageId() != 0){
+            Log.d(MainActivity.MAIN_LOG,"ContactAdapter: " + contact.getName());
+            Log.d(MainActivity.MAIN_LOG,"ContactAdapter: " + contact.getImageId());
             holder.avatar.setImageResource(contact.getImageId());
+        }else{
+            holder.avatar.setImageResource(R.drawable.avatar);
         }
 
         holder.contactName.setText(contact.getName());
@@ -67,6 +73,14 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
                 contactClickListener.onContactClick(contact,position);
             }
         });
+
+        replaceEmptyString(holder.contactShortDescription);
+    }
+
+    private void replaceEmptyString(TextView v){
+        if(v.getText().toString().equals("")){
+            v.setText("Описание отсутствует");
+        }
     }
 
     @Override

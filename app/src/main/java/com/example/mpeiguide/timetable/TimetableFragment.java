@@ -110,7 +110,7 @@ public class TimetableFragment extends Fragment {
         } catch (Exception e) {
             Log.d(MainActivity.MAIN_LOG, "LOAD EXCEPTION");
             for (int i = 0; i < weekTimetableEven.length; i++) {
-                weekTimetableEven[i] = new Timetable(i, even);
+                weekTimetableEven[i] = new Timetable(i, true);
             }
         }
         try {
@@ -119,7 +119,7 @@ public class TimetableFragment extends Fragment {
             Log.d(MainActivity.MAIN_LOG, "LOAD EXCEPTION");
 
             for (int i = 0; i < weekTimetableNotEven.length; i++) {
-                weekTimetableNotEven[i] = new Timetable(i,even);
+                weekTimetableNotEven[i] = new Timetable(i,false);
             }
         }
     }
