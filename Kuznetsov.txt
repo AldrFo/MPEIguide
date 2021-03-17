@@ -1,0 +1,7 @@
+new Contact(
+"<Кузнецов Эдуард Васильевич>",
+"<Профессор>",
+"<>",
+"<>",
+"<KuznetsovEV@mpei.ru>",
+Contact.NONE)

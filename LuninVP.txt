@@ -1,0 +1,7 @@
+new Contact(
+"<Лунин Валерий Павлович>",
+"<Профессор>",
+"<>",
+"<>",
+"<LuninVP@mpei.ru>",
+Contact.NONE)

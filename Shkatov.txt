@@ -1,0 +1,7 @@
+new Contact(
+"<Шкатов Петр Николаевич>",
+"<Профессор>",
+"<>",
+"<>",
+"<ShkatovPN@mpei.ru>",
+Contact.NONE)
