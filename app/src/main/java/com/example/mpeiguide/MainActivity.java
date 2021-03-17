@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     public static final String MAIN_LOG = "my_main_log";
 
-    private BottomNavigationView menu;
+    private BottomNavigationView menu1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

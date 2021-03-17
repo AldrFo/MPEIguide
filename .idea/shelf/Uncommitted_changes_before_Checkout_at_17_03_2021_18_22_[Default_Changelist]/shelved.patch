@@ -1,0 +1,23 @@
+Index: app/src/main/java/com/example/mpeiguide/info/contacts/Contact.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.mpeiguide.info.contacts;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class Contact {\r\n\r\n    public static Contact[] contacts ={\r\n    };\r\n\r\n    public static final int NONE = 0;\r\n\r\n    public static final String NAME = \"name\";\r\n    public static final String WORK_POS = \"work_pos\";\r\n    public static final String PHONE_NUM = \"phone_num\";\r\n    public static final String PLACE = \"place\";\r\n    public static final String DESCRIPTION = \"description\";\r\n    public static final String EMAIL = \"email\";\r\n    public static final String IMAGE_ID = \"image_view\";\r\n\r\n    private int imageId;\r\n    private String name;\r\n    private String workPosition;\r\n    private String phoneNumber;\r\n    private String place;\r\n    private String description;\r\n    private String email;\r\n\r\n    public Contact(String name, String workPosition, String phoneNumber, String place,\r\n                   String description, String email,int imageId){\r\n        this.name = name;\r\n        this.workPosition = workPosition;\r\n        this.phoneNumber = phoneNumber;\r\n        this.place = place;\r\n        this.description = description;\r\n        this.email = email;\r\n        this.imageId = imageId;\r\n    }\r\n\r\n    public static ArrayList<Contact> getContactsList(){\r\n        ArrayList<Contact> contacts = new ArrayList<>();\r\n        for(int i = 0;i<Contact.contacts.length;i++){\r\n            contacts.add(Contact.contacts[i]);\r\n        }\r\n        return contacts;\r\n    }\r\n\r\n    public String getName() {\r\n        return name;\r\n    }\r\n\r\n    public String getWorkPosition() {\r\n        return workPosition;\r\n    }\r\n\r\n    public String getPhoneNumber() {\r\n        return phoneNumber;\r\n    }\r\n\r\n    public String getPlace() {\r\n        return place;\r\n    }\r\n\r\n    public String getDescription() {\r\n        return description;\r\n    }\r\n\r\n    public String getEmail() {\r\n        return email;\r\n    }\r\n\r\n    public int getImageId(){\r\n        return imageId;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mpeiguide/info/contacts/Contact.java	(revision 7ee8b553c4721a2916304df6e777b283d4c3b91a)
++++ app/src/main/java/com/example/mpeiguide/info/contacts/Contact.java	(date 1615994555320)
+@@ -5,6 +5,13 @@
+ public class Contact {
+ 
+     public static Contact[] contacts ={
++            new Contact(
++                    "<Бобряков Александр Владимирович>",
++                    "<Заведующий кафедрой управления и интеллектуальных технологий>",
++                    "<+7 495 362-74-07, 74-07>",
++                    "<М-313>","",
++                    "<BobriakovAV@mpei.ru>",
++                    Contact.NONE),
+     };
+ 
+     public static final int NONE = 0;
