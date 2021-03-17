@@ -1,7 +1,0 @@
-new Contact(
-"<Качанов Владимир Климентьевич>",
-"<Профессор>",
-"<>",
-"<>",
-"<KachanovVK@mpei.ru>",
-Contact.NONE)

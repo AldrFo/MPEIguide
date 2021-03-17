@@ -1,7 +1,0 @@
-new Contact(
-"<Косарина Екатерина Ивановна>",
-"<Профессор>",
-"<>",
-"<>",
-"<KosarinaYI@mpei.ru>",
-Contact.NONE)

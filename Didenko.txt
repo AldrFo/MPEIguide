@@ -1,7 +1,0 @@
-new Contact(
-"<Диденко Валерий Иванович>",
-"<Профессор>",
-"<>",
-"<>",
-"<DidenkoVI@mpei.ru>",
-Contact.NONE)

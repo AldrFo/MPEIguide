@@ -1,7 +1,0 @@
-new Contact(
-"<Пинаев Валерий Викентьевич>",
-"<Доцент>",
-"<>",
-"<>",
-"<PinayevVV@mpei.ru>",
-Contact.NONE)

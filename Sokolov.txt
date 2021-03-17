@@ -1,7 +1,0 @@
-new Contact(
-"<Соколов Игорь Вячеславович>",
-"<Профессор>",
-"<>",
-"<>",
-"<SokolovIV@mpei.ru>",
-Contact.NONE)

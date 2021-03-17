@@ -5,19 +5,6 @@ import java.util.ArrayList;
 public class Contact {
 
     public static Contact[] contacts ={
-            new Contact("Коротких Татьяна Николаевна","Начальник 2 курса (бакалавриат)",
-                    "+7-495-362-76-64","Г-317",
-                    "Очень большое описание, которое мне лень писать, главное, чтобы оно было больше 50 символов",
-                    "KorotkikhTN@mpei.ru",Contact.NONE),
-            new Contact("Быстрый займ!","Начальник никакого курса",
-                    "8-800-555-35-35","нигде",
-                    "Проще позвонить, чем мать свою продать!","hahahaha",Contact.NONE),
-            new Contact("Фофанов Александр Васильевич","тупа дебик",
-                    "8-964-511-03-55","у компа","грустный мальчик(9(",
-                    "pupailupa@gmail.com",Contact.NONE),
-            new Contact("ФофАнов","тупа дебик",
-                    "8-964-511-03-55","у компа","грустный мальчик(9(",
-                    "pupailupa@gmail.com",Contact.NONE)
     };
 
     public static final int NONE = 0;

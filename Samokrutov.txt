@@ -1,7 +1,0 @@
-new Contact(
-"<Самокрутов Андрей Анатольевич>",
-"<Профессор>",
-"<>",
-"<>",
-"<SamokrutovAA@mpei.ru>",
-Contact.NONE)

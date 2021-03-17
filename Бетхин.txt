@@ -1,7 +1,0 @@
-new Contact(
-"<Бехтин Юрий Станиславович>",
-"<Профессор>",
-"<>",
-"<>",
-"<BekhtinYS@mpei.ru>",
-Contact.NONE)

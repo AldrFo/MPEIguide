@@ -1,7 +1,0 @@
-new Contact(
-"<Казанцев Юрий Алексеевич>",
-"<Профессор>",
-"<>",
-"<>",
-"<KazantsevYA@mpei.ru>",
-Contact.NONE)

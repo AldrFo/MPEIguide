@@ -1,7 +1,0 @@
-new Contact(
-"<Желбаков Игорь Николаевич>",
-"<Профессор>",
-"<>",
-"<>",
-"<ZhelbakovIgN@mpei.ru>",
-Contact.NONE)
