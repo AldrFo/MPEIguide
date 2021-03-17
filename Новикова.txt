@@ -1,0 +1,7 @@
+new Contact(
+"<Новикова Наталья Рафаиловна>",
+"<Доцент>",
+"<>",
+"<>",
+"<NovikovaNR@mpei.ru>",
+Contact.NONE)

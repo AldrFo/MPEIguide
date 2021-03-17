@@ -1,0 +1,7 @@
+new Contact(
+"<Федорова Елена Михайловна>",
+"<Доцент>",
+"<>",
+"<>",
+"<FedorovaYM@mpei.ru>",
+Contact.NONE)

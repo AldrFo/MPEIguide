@@ -1,0 +1,7 @@
+new Contact(
+"<Ковалева Татьяна Юрьевна>",
+"<Доцент>",
+"<>",
+"<>",
+"<KovalevaTY@mpei.ru>",
+Contact.NONE)

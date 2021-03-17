@@ -1,0 +1,7 @@
+new Contact(
+"<Абросимов Леонид Иванович>",
+"<Профессор>",
+"<>",
+"<>",
+"<AbrosimovLI@mpei.ru>",
+Contact.NONE)

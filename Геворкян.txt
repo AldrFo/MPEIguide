@@ -1,0 +1,7 @@
+new Contact(
+"<Геворкян Владимир Мушегович>",
+"<Профессор>",
+"<>",
+"<>",
+"<GevorkianVM@mpei.ru>",
+Contact.NONE)

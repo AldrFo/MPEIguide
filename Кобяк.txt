@@ -1,0 +1,7 @@
+new Contact(
+"<Кобяк Александр Трофимович>",
+"<Доцент>",
+"<>",
+"<>",
+"<KobiakAT@mpei.ru>",
+Contact.NONE)

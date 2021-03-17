@@ -1,0 +1,7 @@
+new Contact(
+"<Краюшкин Владимир Валентинович>",
+"<Доцент>",
+"<>",
+"<>",
+"<KrayushkinVV@mpei.ru>",
+Contact.NONE)
