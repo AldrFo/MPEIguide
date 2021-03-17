@@ -63,7 +63,8 @@
         android:gravity="center"
         app:elevation="4sp"
         android:translationZ="1sp"
-        app:srcCompat="?attr/homeAsUpIndicator"
+        app:maxImageSize="45sp"
+        app:srcCompat="@drawable/ic_arrow"
         app:backgroundTint="@color/float_action_button_color"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
